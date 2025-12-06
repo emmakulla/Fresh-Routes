@@ -799,3 +799,24 @@ VALUES
 (18, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '5/5/2025', 21, 8)
 (19, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', '4/9/2025', 23, 3)
 (20, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.', '8/16/2025', 13, 8); 
+
+CREATE TABLE IF NOT EXISTS Traffic
+(
+    locationID INT PRIMARY KEY,
+    timestamp TIMESTAMP NOT NULL,
+    trafficLevels varchar(50) NOT NULL,
+    notification TEXT,
+    driverID INT NOT NULL,
+    FOREIGN KEY (driverID) REFERENCES Driver(driverID) ON UPDATE CASCADE
+);
+
+INSERT INTO Traffic (locationID, timestamp, trafficLevels, notification, driverID) 
+VALUES
+(101, '2025-02-01 08:15:23', 'Low', NULL, 1),
+(102, '2025-02-01 08:17:45', 'Moderate', 'Slight delays expected.', 2),
+(103, '2025-02-01 08:22:10', 'High', 'Heavy congestion reported near Exit 12.', 3),
+(104, '2025-02-01 08:30:55', 'Severe', 'Road blocked due to an accident. Seek alternate route.', 2),
+(105, '2025-02-01 09:05:31', 'Low', NULL, 4),
+(106, '2025-02-01 09:10:12', 'Moderate', 'Traffic slowing down due to construction.', 5),
+(107, '2025-02-01 09:20:41', 'High', 'Expect delays: peak hour congestion.', 1),
+(108, '2025-02-01 09:35:05', 'Severe', 'Visibility low. Hazardous driving conditions.', 3);
