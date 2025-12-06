@@ -16,7 +16,7 @@ def AboutPageNav():
 
 
 #### ------------------------ Examples for Role of Customer ------------------------
-def PolStratAdvHomeNav():
+def CustomerHomeNav():
     st.sidebar.page_link(
         "pages/00_Customer_Home.py", label="Customer Home", icon="👤"
     )
@@ -24,7 +24,7 @@ def PolStratAdvHomeNav():
 
 def WorldBankVizNav():
     st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+        "pages/01_Meal_Preferences.py", label="World Bank Visualization", icon="🏦"
     )
 
 
@@ -32,31 +32,30 @@ def MapDemoNav():
     st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
 
 
-## ------------------------ Examples for Role of usaid_worker ------------------------
+## ------------------------ Examples for Role of Farmer ------------------------
 
-def usaidWorkerHomeNav():
+def FarmerHomeNav():
     st.sidebar.page_link(
-      "pages/00_Customer_Home.py", label="Your Home", icon="🏠"
+      "pages/10_Farmer_Home.py", label="Your Home", icon="🏠"
     )
-
-def NgoDirectoryNav():
-    st.sidebar.page_link("pages/14_NGO_Directory.py", label="NGO Directory", icon="📁")
-
-def AddNgoNav():
-    st.sidebar.page_link("pages/15_Add_NGO.py", label="Add New NGO", icon="➕")
-
-def ApiTestNav():
-    st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
-
-def PredictionNav():
+def ProduceEditNav():
     st.sidebar.page_link(
-        "pages/11_Prediction.py", label="Regression Prediction", icon="📈"
-    )
+        "pages/11_Produce_Edit.py", label="Produce Editor", icon="🚜")
 
-def ClassificationNav():
-    st.sidebar.page_link(
-        "pages/13_Classification.py", label="Classification Demo", icon="🌺"
-    )
+def IngredientDirectoryNav():
+    st.sidebar.page_link("pages/14_NGO_Directory.py", label="Ingredient Directory", icon="📁")
+
+#def AddNgoNav():
+   # st.sidebar.page_link("pages/15_Add_NGO.py", label="Add New NGO", icon="➕")
+
+def IngredientPredictorNav():
+    st.sidebar.page_link("pages/12_API_Test.py", label="Ingredient Predictor", icon="📈")
+
+
+#def ClassificationNav():
+    #st.sidebar.page_link(
+   #     "pages/13_Classification.py", label="Classification Demo", icon="🌺"
+   # )
 
 
 
@@ -93,18 +92,18 @@ def SideBarLinks(show_home=False):
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
         if st.session_state["role"] == "pol_strat_advisor":
-            PolStratAdvHomeNav()
+            CustomerHomeNav()
             WorldBankVizNav()
             MapDemoNav()
 
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "usaid_worker":
-            usaidWorkerHomeNav()
-            NgoDirectoryNav()
-            AddNgoNav()
-            PredictionNav()
-            ApiTestNav()
-            ClassificationNav()
+            FarmerHomeNav()
+            IngredientDirectoryNav()
+            #AddNgoNav()
+            ProduceEditNav()
+            IngredientPredictorNav()
+            #ClassificationNav()
             
 
         # If the user is an administrator, give them access to the administrator pages

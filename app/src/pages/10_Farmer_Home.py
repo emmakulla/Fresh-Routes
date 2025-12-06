@@ -14,10 +14,10 @@ st.write('')
 st.write('')
 st.write('### What would you like to do today?')
 
-if st.button('View NGO Directory', 
+if st.button('Produce Editor',
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/14_NGO_Directory.py')
+  st.switch_page('pages/11_Produce_Edit.py')
 
 if st.button('Add New NGO', 
              type='primary',
@@ -27,7 +27,7 @@ if st.button('Add New NGO',
 if st.button('Predict Value Based on Regression Model', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/11_Prediction.py')
+  st.switch_page('pages/11_Produce_Edit.py')
 
 if st.button('View the Simple API Demo', 
              type='primary',
