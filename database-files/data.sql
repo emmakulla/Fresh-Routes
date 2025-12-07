@@ -19,55 +19,55 @@ CREATE TABLE IF NOT EXISTS Customer(
 
 INSERT INTO Customer (CustomerID, firstName, lastName, email, dietaryPref, nutritionGoals)
 VALUES
-(1, 'Willdon', 'Cardillo', 'wcardillo0@posterous.com', 'gluten_free', 'muscle_gain')
-(2, 'Lyon', 'Levee', 'llevee1@auda.org.au', 'vegetarian', 'protein')
-(3, 'Garrott', 'Fairfull', 'gfairfull2@ifeng.com', 'pescatarian', 'heart_health')
-(4, 'Carolin', 'Jessel', 'cjessel3@hhs.gov', 'gluten_free', 'weight_loss')
-(5, 'Rosella', 'Thurgood', 'rthurgood4@meetup.com', 'vegetarian', 'muscle_gain')
-(6, 'Vivyanne', 'Boyington', 'vboyington5@ycombinator.com', 'pescatarian', 'muscle_gain')
-(7, 'Norma', 'Ferber', 'nferber6@netvibes.com', 'pescatarian', 'weight_loss')
-(8, 'Etta', 'Downton', 'edownton7@ucla.edu', 'pescatarian', 'heart_health')
-(9, 'Gayla', 'McKeney', 'gmckeney8@nps.gov', 'gluten_free', 'weight_loss')
-(10, 'Florina', 'Crangle', 'fcrangle9@weibo.com', 'vegetarian', 'heart_health')
-(11, 'Hasheem', 'Eteen', 'heteena@columbia.edu', 'pescatarian', 'muscle_gain')
-(12, 'Serene', 'Tankard', 'stankardb@cdbaby.com', 'none', 'protein')
-(13, 'Karlik', 'McGarrahan', 'kmcgarrahanc@rambler.ru', 'vegetarian', 'weight_loss')
-(14, 'Aharon', 'Hardaker', 'ahardakerd@joomla.org', 'gluten_free', 'weight_loss')
-(15, 'Car', 'Morrill', 'cmorrille@oakley.com', 'vegetarian', 'muscle_gain')
-(16, 'Friedrich', 'Donati', 'fdonatif@omniture.com', 'pescatarian', 'weight_loss')
-(17, 'Vaughan', 'Lakeman', 'vlakemang@geocities.com', 'pescatarian', 'muscle_gain')
-(18, 'Elsworth', 'Coggen', 'ecoggenh@cocolog-nifty.com', 'vegan', 'muscle_gain')
-(19, 'Berenice', 'Wasteney', 'bwasteneyi@nyu.edu', 'vegetarian', 'muscle_gain')
-(20, 'Rianon', 'Aloway', 'ralowayj@telegraph.co.uk', 'none', 'muscle_gain')
-(21, 'Mattie', 'Doyle', 'mdoylek@nymag.com', 'vegan', 'heart_health')
-(22, 'Keeley', 'Matthews', 'kmatthewsl@ovh.net', 'pescatarian', 'muscle_gain')
-(23, 'Nina', 'Larroway', 'nlarrowaym@github.io', 'gluten_free', 'heart_health')
-(24, 'Kristen', 'Stait', 'kstaitn@europa.eu', 'none', 'muscle_gain')
-(25, 'Klarrisa', 'Finnick', 'kfinnicko@bandcamp.com', 'vegan', 'protein')
-(26, 'Minni', 'MacNalley', 'mmacnalleyp@surveymonkey.com', 'gluten_free', 'heart_health')
-(27, 'Matt', 'China', 'mchinaq@tuttocitta.it', 'vegan', 'weight_loss')
-(28, 'Lavinia', 'Marte', 'lmarter@toplist.cz', 'none', 'heart_health')
-(29, 'Marguerite', 'Wolfenden', 'mwolfendens@surveymonkey.com', 'vegetarian', 'weight_loss')
-(30, 'Gerrilee', 'Saltrese', 'gsaltreset@ifeng.com', 'vegetarian', 'protein')
-(31, 'Liva', 'Wadworth', 'lwadworthu@booking.com', 'gluten_free', 'weight_loss')
-(32, 'Nikolos', 'Manvelle', 'nmanvellev@mashable.com', 'vegetarian', 'heart_health')
-(33, 'Cinda', 'Thickens', 'cthickensw@loc.gov', 'vegetarian', 'muscle_gain')
-(34, 'Elysee', 'Painten', 'epaintenx@1688.com', 'vegetarian', 'weight_loss')
-(35, 'Skippie', 'Kibby', 'skibbyy@arstechnica.com', 'vegan', 'muscle_gain')
-(36, 'Robinett', 'Chadbourn', 'rchadbournz@cdc.gov', 'vegan', 'muscle_gain')
-(37, 'Tamma', 'Desbrow', 'tdesbrow10@latimes.com', 'vegetarian', 'weight_loss')
-(38, 'Terrence', 'Hugonnet', 'thugonnet11@unicef.org', 'pescatarian', 'weight_loss')
-(39, 'Fanchon', 'Heigho', 'fheigho12@diigo.com', 'pescatarian', 'muscle_gain')
-(40, 'Roseanna', 'Keyse', 'rkeyse13@newsvine.com', 'vegan', 'heart_health')
-(41, 'Aviva', 'Watkiss', 'awatkiss14@nationalgeographic.com', 'vegan', 'weight_loss')
-(42, 'Theresa', 'Ventris', 'tventris15@unicef.org', 'vegan', 'muscle_gain')
-(43, 'Dyann', 'Pacheco', 'dpacheco16@netvibes.com', 'gluten_free', 'protein')
-(44, 'Emelita', 'Breitler', 'ebreitler17@123-reg.co.uk', 'none', 'heart_health')
-(45, 'Halli', 'Adamczyk', 'hadamczyk18@blog.com', 'none', 'weight_loss')
-(46, 'Jedidiah', 'Dinesen', 'jdinesen19@google.com.hk', 'gluten_free', 'heart_health')
-(47, 'Garwin', 'Szubert', 'gszubert1a@exblog.jp', 'vegan', 'protein')
-(48, 'Wenonah', 'Trevorrow', 'wtrevorrow1b@alexa.com', 'none', 'protein')
-(49, 'Jayson', 'Vern', 'jvern1c@google.cn', 'gluten_free', 'heart_health')
+(1, 'Willdon', 'Cardillo', 'wcardillo0@posterous.com', 'gluten_free', 'muscle_gain'),
+(2, 'Lyon', 'Levee', 'llevee1@auda.org.au', 'vegetarian', 'protein'),
+(3, 'Garrott', 'Fairfull', 'gfairfull2@ifeng.com', 'pescatarian', 'heart_health'),
+(4, 'Carolin', 'Jessel', 'cjessel3@hhs.gov', 'gluten_free', 'weight_loss'),
+(5, 'Rosella', 'Thurgood', 'rthurgood4@meetup.com', 'vegetarian', 'muscle_gain'),
+(6, 'Vivyanne', 'Boyington', 'vboyington5@ycombinator.com', 'pescatarian', 'muscle_gain'),
+(7, 'Norma', 'Ferber', 'nferber6@netvibes.com', 'pescatarian', 'weight_loss'),
+(8, 'Etta', 'Downton', 'edownton7@ucla.edu', 'pescatarian', 'heart_health'),
+(9, 'Gayla', 'McKeney', 'gmckeney8@nps.gov', 'gluten_free', 'weight_loss'),
+(10, 'Florina', 'Crangle', 'fcrangle9@weibo.com', 'vegetarian', 'heart_health'),
+(11, 'Hasheem', 'Eteen', 'heteena@columbia.edu', 'pescatarian', 'muscle_gain'),
+(12, 'Serene', 'Tankard', 'stankardb@cdbaby.com', 'none', 'protein'),
+(13, 'Karlik', 'McGarrahan', 'kmcgarrahanc@rambler.ru', 'vegetarian', 'weight_loss'),
+(14, 'Aharon', 'Hardaker', 'ahardakerd@joomla.org', 'gluten_free', 'weight_loss'),
+(15, 'Car', 'Morrill', 'cmorrille@oakley.com', 'vegetarian', 'muscle_gain'),
+(16, 'Friedrich', 'Donati', 'fdonatif@omniture.com', 'pescatarian', 'weight_loss'),
+(17, 'Vaughan', 'Lakeman', 'vlakemang@geocities.com', 'pescatarian', 'muscle_gain'),
+(18, 'Elsworth', 'Coggen', 'ecoggenh@cocolog-nifty.com', 'vegan', 'muscle_gain'),
+(19, 'Berenice', 'Wasteney', 'bwasteneyi@nyu.edu', 'vegetarian', 'muscle_gain'),
+(20, 'Rianon', 'Aloway', 'ralowayj@telegraph.co.uk', 'none', 'muscle_gain'),
+(21, 'Mattie', 'Doyle', 'mdoylek@nymag.com', 'vegan', 'heart_health'),
+(22, 'Keeley', 'Matthews', 'kmatthewsl@ovh.net', 'pescatarian', 'muscle_gain'),
+(23, 'Nina', 'Larroway', 'nlarrowaym@github.io', 'gluten_free', 'heart_health'),
+(24, 'Kristen', 'Stait', 'kstaitn@europa.eu', 'none', 'muscle_gain'),
+(25, 'Klarrisa', 'Finnick', 'kfinnicko@bandcamp.com', 'vegan', 'protein'),
+(26, 'Minni', 'MacNalley', 'mmacnalleyp@surveymonkey.com', 'gluten_free', 'heart_health'),
+(27, 'Matt', 'China', 'mchinaq@tuttocitta.it', 'vegan', 'weight_loss'),
+(28, 'Lavinia', 'Marte', 'lmarter@toplist.cz', 'none', 'heart_health'),
+(29, 'Marguerite', 'Wolfenden', 'mwolfendens@surveymonkey.com', 'vegetarian', 'weight_loss'),
+(30, 'Gerrilee', 'Saltrese', 'gsaltreset@ifeng.com', 'vegetarian', 'protein'),
+(31, 'Liva', 'Wadworth', 'lwadworthu@booking.com', 'gluten_free', 'weight_loss'),
+(32, 'Nikolos', 'Manvelle', 'nmanvellev@mashable.com', 'vegetarian', 'heart_health'),
+(33, 'Cinda', 'Thickens', 'cthickensw@loc.gov', 'vegetarian', 'muscle_gain'),
+(34, 'Elysee', 'Painten', 'epaintenx@1688.com', 'vegetarian', 'weight_loss'),
+(35, 'Skippie', 'Kibby', 'skibbyy@arstechnica.com', 'vegan', 'muscle_gain'),
+(36, 'Robinett', 'Chadbourn', 'rchadbournz@cdc.gov', 'vegan', 'muscle_gain'),
+(37, 'Tamma', 'Desbrow', 'tdesbrow10@latimes.com', 'vegetarian', 'weight_loss'),
+(38, 'Terrence', 'Hugonnet', 'thugonnet11@unicef.org', 'pescatarian', 'weight_loss'),
+(39, 'Fanchon', 'Heigho', 'fheigho12@diigo.com', 'pescatarian', 'muscle_gain'),
+(40, 'Roseanna', 'Keyse', 'rkeyse13@newsvine.com', 'vegan', 'heart_health'),
+(41, 'Aviva', 'Watkiss', 'awatkiss14@nationalgeographic.com', 'vegan', 'weight_loss'),
+(42, 'Theresa', 'Ventris', 'tventris15@unicef.org', 'vegan', 'muscle_gain'),
+(43, 'Dyann', 'Pacheco', 'dpacheco16@netvibes.com', 'gluten_free', 'protein'),
+(44, 'Emelita', 'Breitler', 'ebreitler17@123-reg.co.uk', 'none', 'heart_health'),
+(45, 'Halli', 'Adamczyk', 'hadamczyk18@blog.com', 'none', 'weight_loss'),
+(46, 'Jedidiah', 'Dinesen', 'jdinesen19@google.com.hk', 'gluten_free', 'heart_health'),
+(47, 'Garwin', 'Szubert', 'gszubert1a@exblog.jp', 'vegan', 'protein'),
+(48, 'Wenonah', 'Trevorrow', 'wtrevorrow1b@alexa.com', 'none', 'protein'),
+(49, 'Jayson', 'Vern', 'jvern1c@google.cn', 'gluten_free', 'heart_health'),
 (50, 'Martie', 'Osinin', 'mosinin1d@dedecms.com', 'pescatarian', 'heart_health');
 
 CREATE TABLE IF NOT EXISTS CustomerMessage(
@@ -80,37 +80,36 @@ CREATE TABLE IF NOT EXISTS CustomerMessage(
 
 INSERT INTO CustomerMessage(messageID, content, `timestamp`, customerID)
 VALUES
-values (1, 'Quisque ut erat.', '8/30/2025', 34)
-values (2, 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', '9/9/2025', 18)
-values (3, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', '9/21/2025', 16)
-values (4, 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.', '12/24/2024', 13)
-values (5, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', '5/5/2025', 27)
-values (6, 'Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.', '7/26/2025', 10)
-values (7, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.', '10/24/2025', 12)
-values (8, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.', '3/21/2025', 27)
-values (9, 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', '8/7/2025', 48)
-values (10, 'Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', '4/14/2025', 18)
-values (11, 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '6/21/2025', 50)
-values (12, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', '6/16/2025', 40)
-values (13, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '9/14/2025', 23)
-values (14, 'Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.', '3/5/2025', 32)
-values (15, 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.', '5/17/2025', 11)
-values (16, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.', '11/22/2025', 49)
-values (17, 'Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.', '5/27/2025', 7)
-values (18, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.', '9/2/2025', 11)
-values (19, 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.', '2/19/2025', 14)
-values (20, 'Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', '9/1/2025', 19)
-values (21, 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.', '7/5/2025', 7)
-values (22, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', '7/4/2025', 17)
-values (23, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.', '10/17/2025', 2)
-values (24, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', '6/7/2025', 44)
-values (25, 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', '1/7/2025', 34)
-values (26, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', '1/14/2025', 22)
-values (27, 'Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.', '11/16/2025', 42)
-values (28, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.', '11/22/2025', 25)
-values (29, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '8/1/2025', 36)
-values (30, 'Integer a nibh.', '9/10/2025', 18);
-
+(1, 'Quisque ut erat.', '8/30/2025', 34),
+(2, 'Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', '9/9/2025', 18),
+(3, 'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti.', '9/21/2025', 16),
+(4, 'Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis.', '12/24/2024', 13),
+(5, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.', '5/5/2025', 27),
+(6, 'Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.', '7/26/2025', 10),
+(7, 'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.', '10/24/2025', 12),
+(8, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.', '3/21/2025', 27),
+(9, 'Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.', '8/7/2025', 48),
+(10, 'Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', '4/14/2025', 18),
+(11, 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '6/21/2025', 50),
+(12, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', '6/16/2025', 40),
+(13, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '9/14/2025', 23),
+(14, 'Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.', '3/5/2025', 32),
+(15, 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.', '5/17/2025', 11),
+(16, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.', '11/22/2025', 49),
+(17, 'Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.', '5/27/2025', 7),
+(18, 'Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.', '9/2/2025', 11),
+(19, 'Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.', '2/19/2025', 14),
+(20, 'Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.', '9/1/2025', 19),
+(21, 'Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.', '7/5/2025', 7),
+(22, 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', '7/4/2025', 17),
+(23, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.', '10/17/2025', 2),
+(24, 'Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', '6/7/2025', 44),
+(25, 'Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.', '1/7/2025', 34),
+(26, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.', '1/14/2025', 22),
+(27, 'Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.', '11/16/2025', 42),
+(28, 'Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.', '11/22/2025', 25),
+(29, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '8/1/2025', 36),
+(30, 'Integer a nibh.', '9/10/2025', 18);
 
 -- Driver
 CREATE TABLE IF NOT EXISTS Driver(
@@ -120,11 +119,11 @@ CREATE TABLE IF NOT EXISTS Driver(
 
 INSERT INTO Driver (DriverID, Name)
 VALUES
-values (1, 'Cassey Raylton')
-values (2, 'Wally Truitt')
-values (3, 'Ronnica Binfield')
-values (4, 'Blanch Shattock')
-values (5, 'Griffin Petyakov');
+(1, 'Cassey Raylton'),
+(2, 'Wally Truitt'),
+(3, 'Ronnica Binfield'),
+(4, 'Blanch Shattock'),
+(5, 'Griffin Petyakov');
 
 CREATE TABLE IF NOT EXISTS Orders(
     orderID INT PRIMARY KEY,
@@ -143,30 +142,30 @@ CREATE TABLE IF NOT EXISTS Orders(
 
 INSERT INTO Orders (OrderID, `status`, orderDate, scheduledTime, deliveryAddress, quantityOrdered, produceID, ingredientID, DriverID, customerID) 
 VALUES
-(1, 'cancelled', '1/8/2025', '3/27/2025', 61, 8, 8, 15, 3, null)
-(2, 'cancelled', '1/19/2025', '3/21/2025', 30, 1, 13, 6, 1, null)
-(3, 'cancelled', '4/5/2025', '9/5/2025', 68, 4, 4, 24, 3, 45)
-(4, 'confirmed', '12/21/2024', '11/15/2025', 93, 8, 8, 25, 3, 31)
-(5, 'out_for_delivery', '1/4/2025', '1/13/2025', 50, 2, 12, 2, 4, 42)
-(6, 'pending', '11/11/2025', '2/27/2025', 92, 4, 1, 30, 2, 8)
-(7, 'delivered', '7/14/2025', '4/28/2025', 62, 4, 8, 19, null, 41)
-(8, 'preparing', '9/21/2025', '6/23/2025', 11, 5, 5, 10, null, 24)
-(9, 'preparing', '7/12/2025', '7/7/2025', 71, 1, 7, 18, 1, 29)
-(10, 'out_for_delivery', '4/12/2025', '5/6/2025', 3, 10, 6, 19, 1, 9)
-(11, 'cancelled', '10/4/2025', '4/22/2025', 24, 8, 1, 13, 3, 9)
-(12, 'out_for_delivery', '3/5/2025', '10/26/2025', 33, 10, 6, 7, 2, 7)
-(13, 'out_for_delivery', '9/18/2025', '2/16/2025', 27, 1, 7, 10, 3, 31)
-(14, 'cancelled', '1/2/2025', '3/13/2025', 30, 10, 1, 30, 1, 6)
-(15, 'cancelled', '12/18/2024', '11/18/2025', 48, 4, 1, 10, 2, 14)
-(16, 'delivered', '11/3/2025', '1/3/2025', 89, 10, 2, 12, 4, 33)
-(17, 'preparing', '1/3/2025', '5/30/2025', 92, 5, 1, 22, 1, 49)
-(18, 'out_for_delivery', '4/17/2025', '3/27/2025', 18, 8, 10, 21, 5, null)
-(19, 'confirmed', '8/21/2025', '5/18/2025', 45, 7, 3, 15, 1, 32)
-(20, 'delivered', '4/21/2025', '10/7/2025', 4, 10, 6, 13, 3, 43)
-(21, 'out_for_delivery', '4/25/2025', '8/13/2025', 36, 7, 6, 22, 1, 13)
-(22, 'confirmed', '8/24/2025', '9/28/2025', 17, 9, 11, 18, 2, null)
-(23, 'pending', '4/4/2025', '12/9/2024', 83, 4, 6, 19, 2, 28)
-(24, 'delivered', '5/24/2025', '2/5/2025', 12, 6, 14, 14, 4, 5)
+(1, 'cancelled', '1/8/2025', '3/27/2025', 61, 8, 8, 15, 3, null),
+(2, 'cancelled', '1/19/2025', '3/21/2025', 30, 1, 13, 6, 1, null),
+(3, 'cancelled', '4/5/2025', '9/5/2025', 68, 4, 4, 24, 3, 45),
+(4, 'confirmed', '12/21/2024', '11/15/2025', 93, 8, 8, 25, 3, 31),
+(5, 'out_for_delivery', '1/4/2025', '1/13/2025', 50, 2, 12, 2, 4, 42),
+(6, 'pending', '11/11/2025', '2/27/2025', 92, 4, 1, 30, 2, 8),
+(7, 'delivered', '7/14/2025', '4/28/2025', 62, 4, 8, 19, null, 41),
+(8, 'preparing', '9/21/2025', '6/23/2025', 11, 5, 5, 10, null, 24),
+(9, 'preparing', '7/12/2025', '7/7/2025', 71, 1, 7, 18, 1, 29),
+(10, 'out_for_delivery', '4/12/2025', '5/6/2025', 3, 10, 6, 19, 1, 9),
+(11, 'cancelled', '10/4/2025', '4/22/2025', 24, 8, 1, 13, 3, 9),
+(12, 'out_for_delivery', '3/5/2025', '10/26/2025', 33, 10, 6, 7, 2, 7),
+(13, 'out_for_delivery', '9/18/2025', '2/16/2025', 27, 1, 7, 10, 3, 31),
+(14, 'cancelled', '1/2/2025', '3/13/2025', 30, 10, 1, 30, 1, 6),
+(15, 'cancelled', '12/18/2024', '11/18/2025', 48, 4, 1, 10, 2, 14),
+(16, 'delivered', '11/3/2025', '1/3/2025', 89, 10, 2, 12, 4, 33),
+(17, 'preparing', '1/3/2025', '5/30/2025', 92, 5, 1, 22, 1, 49),
+(18, 'out_for_delivery', '4/17/2025', '3/27/2025', 18, 8, 10, 21, 5, null),
+(19, 'confirmed', '8/21/2025', '5/18/2025', 45, 7, 3, 15, 1, 32),
+(20, 'delivered', '4/21/2025', '10/7/2025', 4, 10, 6, 13, 3, 43),
+(21, 'out_for_delivery', '4/25/2025', '8/13/2025', 36, 7, 6, 22, 1, 13),
+(22, 'confirmed', '8/24/2025', '9/28/2025', 17, 9, 11, 18, 2, null),
+(23, 'pending', '4/4/2025', '12/9/2024', 83, 4, 6, 19, 2, 28),
+(24, 'delivered', '5/24/2025', '2/5/2025', 12, 6, 14, 14, 4, 5),
 (25, 'out_for_delivery', '1/7/2025', '3/14/2025', 72, 4, 9, 7, 3, 19);
 
 CREATE TABLE IF NOT EXISTS DeliveryIssue(
@@ -179,15 +178,15 @@ CREATE TABLE IF NOT EXISTS DeliveryIssue(
 
 INSERT INTO DeliveryIssue (IssueID, OrderID, `timestamp`, `description`) 
 VALUES 
-(1, 7, '12/15/2024', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.')
-(2, 21, '7/20/2025', 'Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.')
-(3, 19, '5/8/2025', 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.')
-(4, 19, '8/12/2025', 'In quis justo.')
-(5, 20, '9/20/2025', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.')
-(6, 20, '9/6/2025', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.')
-(7, 18, '9/24/2025', 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.')
-(8, 5, '10/4/2025', 'In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.')
-(9, 20, '10/1/2025', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam.')
+(1, 7, '12/15/2024', 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.'),
+(2, 21, '7/20/2025', 'Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.'),
+(3, 19, '5/8/2025', 'Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.'),
+(4, 19, '8/12/2025', 'In quis justo.'),
+(5, 20, '9/20/2025', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'),
+(6, 20, '9/6/2025', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.'),
+(7, 18, '9/24/2025', 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.'),
+(8, 5, '10/4/2025', 'In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.'),
+(9, 20, '10/1/2025', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam.'),
 (10, 9, '1/27/2025', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
 
 
@@ -202,35 +201,35 @@ CREATE TABLE IF NOT EXISTS DeliveryMessage(
 
 INSERT INTO DeliveryMessage (messageID, content, `timestamp`, DriverID)
 VALUES 
-(1, 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui.', '2/10/2025', 4)
-(2, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '3/13/2025', 4)
-(3, 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.', '1/28/2025', 3)
-(4, 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.', '12/28/2024', 4)
-(5, 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.', '4/19/2025', 1)
-(6, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', '12/24/2024', 4)
-(7, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', '1/20/2025', 5)
-(8, 'Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', '4/26/2025', 1)
-(9, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', '5/21/2025', 1)
-(10, 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', '2/25/2025', 2)
-(11, 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '8/14/2025', 4)
-(12, 'Quisque porta volutpat erat.', '11/17/2025', 2)
-(13, 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.', '1/27/2025', 4)
-(14, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', '6/29/2025', 4)
-(15, 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.', '1/6/2025', 3)
-(16, 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', '1/24/2025', 1)
-(17, 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', '5/29/2025', 4)
-(18, 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', '1/19/2025', 1)
-(19, 'Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui.', '8/28/2025', 3)
-(20, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', '2/28/2025', 5)
-(21, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', '3/5/2025', 2)
-(22, 'Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', '8/2/2025', 5)
-(23, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', '12/16/2024', 1)
-(24, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', '1/15/2025', 3)
-(25, 'Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', '10/22/2025', 5)
-(26, 'Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.', '11/23/2025', 3)
-(27, 'Nulla facilisi.', '5/28/2025', 4)
-(28, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '9/2/2025', 4)
-(29, 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', '6/2/2025', 1)
+(1, 'Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui.', '2/10/2025', 4),
+(2, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '3/13/2025', 4),
+(3, 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.', '1/28/2025', 3),
+(4, 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.', '12/28/2024', 4),
+(5, 'Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.', '4/19/2025', 1),
+(6, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.', '12/24/2024', 4),
+(7, 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', '1/20/2025', 5),
+(8, 'Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', '4/26/2025', 1),
+(9, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', '5/21/2025', 1),
+(10, 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', '2/25/2025', 2),
+(11, 'Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.', '8/14/2025', 4),
+(12, 'Quisque porta volutpat erat.', '11/17/2025', 2),
+(13, 'Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.', '1/27/2025', 4),
+(14, 'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.', '6/29/2025', 4),
+(15, 'Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.', '1/6/2025', 3),
+(16, 'Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', '1/24/2025', 1),
+(17, 'Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.', '5/29/2025', 4),
+(18, 'Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante.', '1/19/2025', 1),
+(19, 'Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui.', '8/28/2025', 3),
+(20, 'Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.', '2/28/2025', 5),
+(21, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', '3/5/2025', 2),
+(22, 'Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.', '8/2/2025', 5),
+(23, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', '12/16/2024', 1),
+(24, 'Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.', '1/15/2025', 3),
+(25, 'Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.', '10/22/2025', 5),
+(26, 'Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.', '11/23/2025', 3),
+(27, 'Nulla facilisi.', '5/28/2025', 4),
+(28, 'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', '9/2/2025', 4),
+(29, 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', '6/2/2025', 1),
 (30, 'In congue.', '1/22/2025', 5);
  
 -- DriverAvailibilty
@@ -238,53 +237,53 @@ CREATE TABLE IF NOT EXISTS DriverAvailability(
     availibilityID INT PRIMARY KEY,
     availStartTime TIME NOT NULL, -- change the diagram, came from timeWindow
     availEndTime TIME NOT NULL, -- change the diagram, came from timeWindow
-    'date' DATE NOT NULL,
+    `date` DATE NOT NULL,
     isAvailable BOOLEAN,
     DriverID INT NOT NULL,
     FOREIGN KEY (DriverID) REFERENCES Driver(DriverID) ON DELETE CASCADE
 );
 
-INSERT INTO DriverAvailability (availibilityID, availStartTime, availEndTime, 'date', isAvailable, DriverID) 
+INSERT INTO DriverAvailability (availibilityID, availStartTime, availEndTime, `date`, isAvailable, DriverID) 
 VALUES 
-(1, '10:32 AM', '9:27 AM', '11/22/2025', true, 1)
-(2, '8:19 AM', '10:56 AM', '5/5/2025', false, 5)
-(3, '2:21 AM', '6:33 PM', '2/5/2025', true, 3)
-(4, '11:15 AM', '11:35 AM', '4/6/2025', false, 5)
-(5, '5:04 PM', '2:13 AM', '8/16/2025', true, 1)
-(6, '12:42 AM', '4:48 AM', '5/6/2025', true, 1)
-(7, '4:55 PM', '5:24 AM', '5/15/2025', false, 3)
-(8, '9:41 PM', '1:19 AM', '5/25/2025', false, 4)
-(9, '12:43 AM', '10:42 PM', '8/7/2025', true, 1)
-(10, '6:23 PM', '10:11 AM', '10/12/2025', true, 5)
-(11, '2:31 AM', '6:23 PM', '6/13/2025', false, 1)
-(12, '11:54 PM', '4:01 PM', '4/10/2025', true, 5)
-(13, '5:46 PM', '4:35 PM', '3/11/2025', true, 4)
-(14, '3:49 PM', '3:57 PM', '8/21/2025', true, 2)
-(15, '2:17 PM', '7:26 PM', '11/19/2025', true, 4)
-(16, '11:52 AM', '9:54 AM', '8/4/2025', true, 1)
-(17, '10:34 AM', '1:20 AM', '11/10/2025', false, 2)
-(18, '11:47 PM', '9:26 AM', '10/9/2025', false, 2)
-(19, '10:20 AM', '1:53 AM', '6/28/2025', false, 1)
-(20, '1:12 PM', '8:47 PM', '9/20/2025', false, 2)
-(21, '5:30 AM', '12:26 AM', '11/4/2025', true, 3)
-(22, '7:46 AM', '5:07 AM', '7/29/2025', false, 2)
-(23, '8:27 PM', '5:51 PM', '2/8/2025', false, 2)
-(24, '9:48 PM', '9:01 PM', '3/18/2025', true, 1)
-(25, '6:12 PM', '4:17 PM', '11/3/2025', true, 1)
-(26, '4:43 AM', '11:35 AM', '11/11/2025', true, 2)
-(27, '8:11 PM', '8:39 AM', '7/13/2025', false, 2)
-(28, '3:21 AM', '2:03 AM', '12/15/2024', true, 1)
-(29, '10:28 PM', '11:26 AM', '10/25/2025', true, 3)
-(30, '7:55 AM', '1:32 AM', '5/13/2025', false, 1)
-(31, '1:04 AM', '6:55 AM', '3/5/2025', false, 3)
-(32, '1:12 PM', '5:19 AM', '8/15/2025', false, 5)
-(33, '4:36 PM', '4:52 AM', '12/10/2024', true, 1)
-(34, '6:46 PM', '9:01 AM', '8/10/2025', false, 3)
-(35, '11:04 AM', '3:26 PM', '7/6/2025', false, 3)
-(36, '3:25 AM', '5:15 AM', '12/6/2024', false, 5)
-(37, '2:54 AM', '1:17 AM', '4/12/2025', true, 2)
-(38, '1:29 AM', '1:23 AM', '3/9/2025', false, 2)
-(39, '6:03 PM', '10:54 AM', '11/18/2025', false, 1)
+(1, '10:32 AM', '9:27 AM', '11/22/2025', true, 1),
+(2, '8:19 AM', '10:56 AM', '5/5/2025', false, 5),
+(3, '2:21 AM', '6:33 PM', '2/5/2025', true, 3),
+(4, '11:15 AM', '11:35 AM', '4/6/2025', false, 5),
+(5, '5:04 PM', '2:13 AM', '8/16/2025', true, 1),
+(6, '12:42 AM', '4:48 AM', '5/6/2025', true, 1),
+(7, '4:55 PM', '5:24 AM', '5/15/2025', false, 3),
+(8, '9:41 PM', '1:19 AM', '5/25/2025', false, 4),
+(9, '12:43 AM', '10:42 PM', '8/7/2025', true, 1),
+(10, '6:23 PM', '10:11 AM', '10/12/2025', true, 5),
+(11, '2:31 AM', '6:23 PM', '6/13/2025', false, 1),
+(12, '11:54 PM', '4:01 PM', '4/10/2025', true, 5),
+(13, '5:46 PM', '4:35 PM', '3/11/2025', true, 4),
+(14, '3:49 PM', '3:57 PM', '8/21/2025', true, 2),
+(15, '2:17 PM', '7:26 PM', '11/19/2025', true, 4),
+(16, '11:52 AM', '9:54 AM', '8/4/2025', true, 1),
+(17, '10:34 AM', '1:20 AM', '11/10/2025', false, 2),
+(18, '11:47 PM', '9:26 AM', '10/9/2025', false, 2),
+(19, '10:20 AM', '1:53 AM', '6/28/2025', false, 1),
+(20, '1:12 PM', '8:47 PM', '9/20/2025', false, 2),
+(21, '5:30 AM', '12:26 AM', '11/4/2025', true, 3),
+(22, '7:46 AM', '5:07 AM', '7/29/2025', false, 2),
+(23, '8:27 PM', '5:51 PM', '2/8/2025', false, 2),
+(24, '9:48 PM', '9:01 PM', '3/18/2025', true, 1),
+(25, '6:12 PM', '4:17 PM', '11/3/2025', true, 1),
+(26, '4:43 AM', '11:35 AM', '11/11/2025', true, 2),
+(27, '8:11 PM', '8:39 AM', '7/13/2025', false, 2),
+(28, '3:21 AM', '2:03 AM', '12/15/2024', true, 1),
+(29, '10:28 PM', '11:26 AM', '10/25/2025', true, 3),
+(30, '7:55 AM', '1:32 AM', '5/13/2025', false, 1),
+(31, '1:04 AM', '6:55 AM', '3/5/2025', false, 3),
+(32, '1:12 PM', '5:19 AM', '8/15/2025', false, 5),
+(33, '4:36 PM', '4:52 AM', '12/10/2024', true, 1),
+(34, '6:46 PM', '9:01 AM', '8/10/2025', false, 3),
+(35, '11:04 AM', '3:26 PM', '7/6/2025', false, 3),
+(36, '3:25 AM', '5:15 AM', '12/6/2024', false, 5),
+(37, '2:54 AM', '1:17 AM', '4/12/2025', true, 2),
+(38, '1:29 AM', '1:23 AM', '3/9/2025', false, 2),
+(39, '6:03 PM', '10:54 AM', '11/18/2025', false, 1),
 (40, '10:08 PM', '7:03 AM', '4/2/2025', true, 3);
 
 -- meal plan
@@ -298,15 +297,15 @@ CREATE TABLE IF NOT EXISTS mealPlan(
 
 INSERT INTO mealPlan (mealPlanID, startDate, endDate, customerID) 
 VALUES 
-(1, '1/4/2025', '3/27/2025', 28)
-(2, '10/29/2025', '11/13/2025', 4)
-(3, '2/11/2025', '4/10/2025', 5)
-(4, '2/8/2025', '6/8/2025', 4)
-(5, '6/26/2025', '12/6/2024', 38)
-(6, '10/28/2025', null, 39)
-(7, '5/9/2025', null, 21)
-(8, '12/6/2024', '2/2/2025', 43)
-(9, '8/3/2025', '9/21/2025', 13)
+(1, '1/4/2025', '3/27/2025', 28),
+(2, '10/29/2025', '11/13/2025', 4),
+(3, '2/11/2025', '4/10/2025', 5),
+(4, '2/8/2025', '6/8/2025', 4),
+(5, '6/26/2025', '12/6/2024', 38),
+(6, '10/28/2025', null, 39),
+(7, '5/9/2025', null, 21),
+(8, '12/6/2024', '2/2/2025', 43),
+(9, '8/3/2025', '9/21/2025', 13),
 (10, '10/29/2025', '5/4/2025', 26);
 
 CREATE TABLE IF NOT EXISTS Recipe(
@@ -322,46 +321,20 @@ CREATE TABLE IF NOT EXISTS Recipe(
 
 INSERT INTO Recipe (RecipeID, Name, description, nutritionInfo, popularityScore, isActive, suitibleFor, cuisineType) 
 VALUES 
-(1, 'consequat nulla nisl nunc', 'Sed ante. Vivamus tortor. Duis mattis egestas metus.
-
-Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 99, false, 'vegan', 'mediterranean')
-(2, 'congue etiam justo etiam', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.
-
-Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 96, true, 'vegan', 'mediterranean')
-(3, 'donec semper sapien', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 9, true, 'low_carb', 'asian')
-(4, 'dictumst aliquam augue', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.
-
-Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 95, true, 'gluten_free', 'mexican')
-(5, 'tortor risus dapibus', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.
-
-Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.
-
-Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 'Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 70, true, 'gluten_free', 'asian')
-(6, 'iaculis congue vivamus', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.
-
-Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 'Curabitur in libero ut massa volutpat convallis.', 96, false, 'low_carb', 'asian')
-(7, 'odio donec vitae', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.
-
-In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 10, false, 'vegetarian', 'mexican')
-(8, 'pharetra magna ac consequat', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.
-
-Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', 30, true, 'vegetarian', 'mediterranean')
-(9, 'tincidunt in leo maecenas', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.', 47, false, 'vegan', 'mediterranean')
-(10, 'venenatis lacinia aenean sit', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti.
-
-Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 54, false, 'high_protein', 'mexican')
-(11, 'in sapien iaculis', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.
-
-Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum.', 4, false, 'high_protein', 'asian')
-(12, 'vitae nisl aenean', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', 97, false, 'high_protein', 'mediterranean')
-(13, 'elit sodales scelerisque mauris', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.
-
-Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 71, false, 'high_protein', 'mexican')
-(14, 'praesent blandit nam', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.
-
-Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 33, true, 'vegan', 'mexican')
+(1, 'consequat nulla nisl nunc', 'Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.', 99, false, 'vegan', 'mediterranean'),
+(2, 'congue etiam justo etiam', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.', 96, true, 'vegan', 'mediterranean'),
+(3, 'donec semper sapien', 'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.', 9, true, 'low_carb', 'asian'),
+(4, 'dictumst aliquam augue', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi.', 'Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 95, true, 'gluten_free', 'mexican'),
+(5, 'tortor risus dapibus', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', 'Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.', 70, true, 'gluten_free', 'asian'),
+(6, 'iaculis congue vivamus', 'Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.', 'Curabitur in libero ut massa volutpat convallis.', 96, false, 'low_carb', 'asian'),
+(7, 'odio donec vitae', 'Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 10, false, 'vegetarian', 'mexican'),
+(8, 'pharetra magna ac consequat', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.', 'Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.', 30, true, 'vegetarian', 'mediterranean'),
+(9, 'tincidunt in leo maecenas', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.', 47, false, 'vegan', 'mediterranean'),
+(10, 'venenatis lacinia aenean sit', 'Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.', 54, false, 'high_protein', 'mexican'),
+(11, 'in sapien iaculis', 'Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.', 'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum.', 4, false, 'high_protein', 'asian'),
+(12, 'vitae nisl aenean', 'Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.', 97, false, 'high_protein', 'mediterranean'),
+(13, 'elit sodales scelerisque mauris', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 'Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.', 71, false, 'high_protein', 'mexican'),
+(14, 'praesent blandit nam', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 33, true, 'vegan', 'mexican'),
 (15, 'sapien placerat ante nulla', 'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.', 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.', 69, true, 'low_carb', 'mediterranean');
 
 
@@ -373,23 +346,23 @@ CREATE TABLE IF NOT EXISTS Produce(
     UNIT VARCHAR(100)
 );
 
-INSERT INTO Produce (ProduceID, Name, expectedHarvestDate, quantityAvailable, popularityScore, UNIT) 
+INSERT INTO Produce (produceID, name, expectedHarvestDate, quantityAvailable, UNIT) 
 VALUES 
-(1, 'non velit nec nisi', '3/4/2025', 352, 18, 'kg')
-(2, 'nisl duis bibendum', '8/1/2025', 3, 43, 'bunches')
-(3, 'aliquet pulvinar sed', '9/1/2025', 256, 75, 'pieces')
-(4, 'proin interdum mauris', '11/23/2025', 213, 21, 'pieces')
-(5, 'cum sociis natoque', '3/22/2025', 340, 14, 'pieces')
-(6, 'purus sit amet', '1/2/2025', 446, 61, 'pieces')
-(7, 'habitasse platea dictumst', '12/28/2024', 289, 87, 'pieces')
-(8, 'sem fusce consequat', '6/3/2025', 142, 55, 'lbs')
-(9, 'molestie lorem quisque ut', '12/10/2024', 214, 37, 'kg')
-(10, 'quam pede lobortis', '12/16/2024', 133, 3, 'lbs')
-(11, 'erat quisque erat', '9/21/2025', 123, 1, 'lbs')
-(12, 'natoque penatibus et magnis', '5/17/2025', 329, 1, 'lbs')
-(13, 'ligula vehicula consequat morbi', '4/4/2025', 355, 48, 'bunches')
-(14, 'sed justo pellentesque', '12/20/2024', 388, 99, 'pieces')
-(15, 'nam ultrices libero', '11/30/2025', 241, 10, 'kg');
+(1, 'non velit nec nisi', '3/4/2025', 352, 'kg'),
+(2, 'nisl duis bibendum', '8/1/2025', 3, 'bunches'),
+(3, 'aliquet pulvinar sed', '9/1/2025', 256, 'pieces'),
+(4, 'proin interdum mauris', '11/23/2025', 213, 'pieces'),
+(5, 'cum sociis natoque', '3/22/2025', 340, 'pieces'),
+(6, 'purus sit amet', '1/2/2025', 446, 'pieces'),
+(7, 'habitasse platea dictumst', '12/28/2024', 289, 'pieces'),
+(8, 'sem fusce consequat', '6/3/2025', 142, 'lbs'),
+(9, 'molestie lorem quisque ut', '12/10/2024', 214, 'kg'),
+(10, 'quam pede lobortis', '12/16/2024', 133, 'lbs'),
+(11, 'erat quisque erat', '9/21/2025', 123, 'lbs'),
+(12, 'natoque penatibus et magnis', '5/17/2025', 329, 'lbs'),
+(13, 'ligula vehicula consequat morbi', '4/4/2025', 355, 'bunches'),
+(14, 'sed justo pellentesque', '12/20/2024', 388, 'pieces'),
+(15, 'nam ultrices libero', '11/30/2025', 241, 'kg');
 
 
 -- CREATE TABLE IF NOT EXISTS OrderProduce( / can delete ?
@@ -403,45 +376,45 @@ CREATE TABLE IF NOT EXISTS OrderProduce (
 
 INSERT INTO OrderProduce (orderID, produceID) 
 VALUES 
-(15, 4)
-(10, 8)
-(11, 12)
-(18, 3)
-(20, 12)
-(10, 8)
-(16, 1)
-(20, 13)
-(4, 1)
-(15, 3)
-(4, 8)
-(2, 11)
-(4, 1)
-(6, 10)
-(13, 1)
-(5, 6)
-(17, 1)
-(12, 5)
-(25, 1)
-(10, 7)
-(19, 5)
-(10, 11)
-(1, 10)
-(5, 14)
-(5, 13)
-(1, 6)
-(6, 3)
-(20, 14)
-(19, 2)
-(24, 15)
-(20, 10)
-(22, 1)
-(17, 1)
-(2, 3)
-(12, 1)
-(15, 3)
-(11, 9)
-(24, 8)
-(19, 2)
+(15, 4),
+(10, 8),
+(11, 12),
+(18, 3),
+(20, 12),
+(10, 8),
+(16, 1),
+(20, 13),
+(4, 1),
+(15, 3),
+(4, 8),
+(2, 11),
+(4, 1),
+(6, 10),
+(13, 1),
+(5, 6),
+(17, 1),
+(12, 5),
+(25, 1),
+(10, 7),
+(19, 5),
+(10, 11),
+(1, 10),
+(5, 14),
+(5, 13),
+(1, 6),
+(6, 3),
+(20, 14),
+(19, 2),
+(24, 15),
+(20, 10),
+(22, 1),
+(17, 1),
+(2, 3),
+(12, 1),
+(15, 3),
+(11, 9),
+(24, 8),
+(19, 2),
 (3, 7);
 
 CREATE TABLE IF NOT EXISTS mealPlanRecipe(
@@ -456,25 +429,25 @@ CREATE TABLE IF NOT EXISTS mealPlanRecipe(
 
 INSERT INTO MealPlanRecipe (mealPLanID, RecipeID, day, mealType) 
 VALUES 
-(1, 1, 'Monday', 'Breakfast')
-(2, 2, 'Friday', 'Lunch')
-(3, 3, 'Monday', 'Lunch')
-(4, 4, 'Friday', 'Breakfast')
-(5, 5, 'Tuesday', 'Lunch')
-(6, 6, 'Wednesday', 'Breakfast')
-(7, 7, 'Friday', 'Lunch')
-(8, 8, 'Thursday', 'Dinner')
-(9, 9, 'Tuesday', 'Dinner')
-(10, 10, 'Thursday', 'Breakfast')
-(11, 11, 'Thursday', 'Breakfast')
-(12, 12, 'Sunday', 'Dinner')
-(13, 13, 'Wednesday', 'Dinner')
-(14, 14, 'Sunday', 'Dinner')
-(15, 15, 'Sunday', 'Breakfast')
-(16, 16, 'Thursday', 'Dinner')
-(17, 17, 'Thursday', 'Breakfast')
-(18, 18, 'Wednesday', 'Dinner')
-(19, 19, 'Monday', 'Lunch')
+(1, 1, 'Monday', 'Breakfast'),
+(2, 2, 'Friday', 'Lunch'),
+(3, 3, 'Monday', 'Lunch'),
+(4, 4, 'Friday', 'Breakfast'),
+(5, 5, 'Tuesday', 'Lunch'),
+(6, 6, 'Wednesday', 'Breakfast'),
+(7, 7, 'Friday', 'Lunch'),
+(8, 8, 'Thursday', 'Dinner'),
+(9, 9, 'Tuesday', 'Dinner'),
+(10, 10, 'Thursday', 'Breakfast'),
+(11, 11, 'Thursday', 'Breakfast'),
+(12, 12, 'Sunday', 'Dinner'),
+(13, 13, 'Wednesday', 'Dinner'),
+(14, 14, 'Sunday', 'Dinner'),
+(15, 15, 'Sunday', 'Breakfast'),
+(16, 16, 'Thursday', 'Dinner'),
+(17, 17, 'Thursday', 'Breakfast'),
+(18, 18, 'Wednesday', 'Dinner'),
+(19, 19, 'Monday', 'Lunch'),
 (20, 20, 'Sunday', 'Lunch');
 
 -- Recipe Produce
@@ -488,45 +461,45 @@ CREATE TABLE IF NOT EXISTS RecipeProduce(
 
 INSERT INTO RecipeProduce (recipeID, produceID) 
 VALUES 
-(14, 9)
-(8, 8)
-(1, 2)
-(3, 8)
-(11, 1)
-(7, 6)
-(2, 1)
-(6, 5)
-(9, 3)
-(12, 7)
-(3, 13)
-(15, 5)
-(5, 4)
-(4, 9)
-(10, 9)
-(11, 2)
-(1, 5)
-(8, 4)
-(7, 7)
-(2, 10)
-(1, 10)
-(1, 6)
-(11, 11)
-(2, 14)
-(15, 8)
-(8, 8)
-(3, 7)
-(6, 10)
-(4, 10)
-(13, 11)
-(9, 4)
-(10, 9)
-(11, 14)
-(10, 15)
-(8, 2)
-(2, 6)
-(3, 13)
-(8, 11)
-(12, 1)
+(14, 9),
+(8, 8),
+(1, 2),
+(3, 8),
+(11, 1),
+(7, 6),
+(2, 1),
+(6, 5),
+(9, 3),
+(12, 7),
+(3, 13),
+(15, 5),
+(5, 4),
+(4, 9),
+(10, 9),
+(11, 2),
+(1, 5),
+(8, 4),
+(7, 7),
+(2, 10),
+(1, 10),
+(1, 6),
+(11, 11),
+(2, 14),
+(15, 8),
+(8, 8),
+(3, 7),
+(6, 10),
+(4, 10),
+(13, 11),
+(9, 4),
+(10, 9),
+(11, 14),
+(10, 15),
+(8, 2),
+(2, 6),
+(3, 13),
+(8, 11),
+(12, 1),
 (14, 8);
 
 -- produce --> demand
@@ -539,17 +512,17 @@ CREATE TABLE IF NOT EXISTS Demand(
 
 INSERT INTO Demand (produceID, forcastID, predictedDemand) 
 VALUES 
-(11, 1, 473.73)
-(13, 2, 44.23)
-(12, 3, 859.14)
-(6, 4, 85.81)
-(10, 5, 708.52)
-(3, 6, 74.81)
-(14, 7, 606.66)
-(8, 8, 572.84)
-(9, 9, 580.85)
-(3, 10, 83.77)
-(8, 11, 985.98)
+(11, 1, 473.73),
+(13, 2, 44.23),
+(12, 3, 859.14),
+(6, 4, 85.81),
+(10, 5, 708.52),
+(3, 6, 74.81),
+(14, 7, 606.66),
+(8, 8, 572.84),
+(9, 9, 580.85),
+(3, 10, 83.77),
+(8, 11, 985.98),
 (7, 12, 873.31);
 
 CREATE TABLE IF NOT EXISTS Farmer(
@@ -560,16 +533,16 @@ CREATE TABLE IF NOT EXISTS Farmer(
     contactInfo TEXT
 );
 
-INSERT INTO Farmer (farmerID, Name, Status, email, contanctInfo)
+INSERT INTO Farmer (farmerID, name, status, email, contactInfo)
 VALUES 
-(1, 'Sharity Bruckental', 'pending', 15, 8)
-(2, 'Delbert Serjeant', 'approved', 15, 6)
-(3, 'Charmaine Aleksashin', 'approved', 44, 7)
-(4, 'Irene Carlyle', 'approved', 32, 8)
-(5, 'Bobbette Genders', 'pending', 40, 1)
-(6, 'Lorita Henzer', 'suspended', 29, 5)
-(7, 'Garvin Duffy', 'approved', 22, 2)
-(8, 'Nana Pallesen', 'suspended', 45, 8);
+(1, 'Sharity Bruckental', 'pending', 'sb@gmail.com', 'personal'),
+(2, 'Delbert Serjeant', 'approved', 'ds@gmail.com', 'business'),
+(3, 'Charmaine Aleksashin', 'approved', 'ca@gmail.com', 'business'),
+(4, 'Irene Carlyle', 'approved', 'ic@gmail.com', 'business'),
+(5, 'Bobbette Genders', 'pending', 'bg@gmail.com', 'personal'),
+(6, 'Lorita Henzer', 'suspended', 'lh@gmail.com', 'business'),
+(7, 'Garvin Duffy', 'approved', 'gd@gmail.com', 'business'),
+(8, 'Nana Pallesen', 'suspended', 'np@gmail.com', 'personal');
 
 
 -- produce -> inventory entry
@@ -585,35 +558,35 @@ CREATE TABLE IF NOT EXISTS InventoryEntry(
 
 INSERT INTO InventoryEntry (inventoryID, farmerID, produceID, dateUpdate, quantity) 
 VALUES 
-(1, 5, 11, '7/30/2025', 258)
-(2, 8, 8, '2/9/2025', 47)
-(3, 4, 12, '3/5/2025', 359)
-(4, 8, 1, '2/23/2025', 90)
-(5, 4, 7, '5/9/2025', 171)
-(6, 8, 9, '12/13/2024', 177)
-(7, 3, 6, '4/20/2025', 187)
-(8, 4, 8, '1/12/2025', 115)
-(9, 1, 9, '5/7/2025', 219)
-(10, 1, 1, '9/4/2025', 394)
-(11, 4, 7, '10/15/2025', 114)
-(12, 1, 6, '8/28/2025', 326)
-(13, 2, 5, '12/24/2024', 467)
-(14, 1, 2, '6/2/2025', 101)
-(15, 3, 3, '5/20/2025', 3)
-(16, 1, 9, '7/28/2025', 430)
-(17, 1, 4, '3/7/2025', 74)
-(18, 6, 8, '4/7/2025', 130)
-(19, 4, 7, '10/17/2025', 348)
-(20, 6, 8, '9/25/2025', 322)
-(21, 6, 9, '9/21/2025', 441)
-(22, 7, 6, '6/21/2025', 202)
-(23, 5, 3, '8/31/2025', 438)
-(24, 4, 2, '1/19/2025', 402)
-(25, 8, 5, '5/14/2025', 490)
-(26, 3, 10, '1/14/2025', 237)
-(27, 7, 5, '12/25/2024', 134)
-(28, 1, 8, '10/24/2025', 369)
-(29, 4, 4, '4/19/2025', 175)
+(1, 5, 11, '7/30/2025', 258),
+(2, 8, 8, '2/9/2025', 47),
+(3, 4, 12, '3/5/2025', 359),
+(4, 8, 1, '2/23/2025', 90),
+(5, 4, 7, '5/9/2025', 171),
+(6, 8, 9, '12/13/2024', 177),
+(7, 3, 6, '4/20/2025', 187),
+(8, 4, 8, '1/12/2025', 115),
+(9, 1, 9, '5/7/2025', 219),
+(10, 1, 1, '9/4/2025', 394),
+(11, 4, 7, '10/15/2025', 114),
+(12, 1, 6, '8/28/2025', 326),
+(13, 2, 5, '12/24/2024', 467),
+(14, 1, 2, '6/2/2025', 101),
+(15, 3, 3, '5/20/2025', 3),
+(16, 1, 9, '7/28/2025', 430),
+(17, 1, 4, '3/7/2025', 74),
+(18, 6, 8, '4/7/2025', 130),
+(19, 4, 7, '10/17/2025', 348),
+(20, 6, 8, '9/25/2025', 322),
+(21, 6, 9, '9/21/2025', 441),
+(22, 7, 6, '6/21/2025', 202),
+(23, 5, 3, '8/31/2025', 438),
+(24, 4, 2, '1/19/2025', 402),
+(25, 8, 5, '5/14/2025', 490),
+(26, 3, 10, '1/14/2025', 237),
+(27, 7, 5, '12/25/2024', 134),
+(28, 1, 8, '10/24/2025', 369),
+(29, 4, 4, '4/19/2025', 175),
 (30, 3, 4, '11/5/2025', 206);
 
 -- weekly Menu
@@ -622,11 +595,11 @@ CREATE TABLE IF NOT EXISTS weeklyMenu(
     weekNumber INT NOT NULL
 );
 
-INSERT INTO weeklyMenu (menuID, recipeID) 
+INSERT INTO weeklyMenu (menuID, weekNumber) 
 VALUES
-(1, 5)
-(4, 13)
-(2, 3)
+(1, 5),
+(4, 13),
+(2, 3),
 (2, 15);
 
 -- Recipe weekly menu
@@ -638,35 +611,35 @@ CREATE TABLE IF NOT EXISTS Recipe_WeeklyMenu(
     FOREIGN KEY (recipeID) REFERENCES Recipe(recipeID)
 );
 
-INSERT INTO Recipe_WeeklyMenu(manuID, recipeID)
+INSERT INTO Recipe_WeeklyMenu(menuID, recipeID)
 VALUES 
-(1,8)
-(2,15)
-(3,10)
-(5,6)
-(7,5)
-(8,3)
-(9,2)
-(10,11)
-(11,1)
-(12,6)
-(13,15)
-(14,2)
-(15,6)
-(16,3)
-(17,12)
-(18,13)
-(19,15)
-(20,2)
-(21,13)
-(22,14)
-(23,11)
-(24,12)
-(25,3)
-(26,11)
-(27,3)
-(28,11)
-(29,11)
+(1,8),
+(2,15),
+(3,10),
+(5,6),
+(7,5),
+(8,3),
+(9,2),
+(10,11),
+(11,1),
+(12,6),
+(13,15),
+(14,2),
+(15,6),
+(16,3),
+(17,12),
+(18,13),
+(19,15),
+(20,2),
+(21,13),
+(22,14),
+(23,11),
+(24,12),
+(25,3),
+(26,11),
+(27,3),
+(28,11),
+(29,11),
 (30,2);
 
 
@@ -683,35 +656,35 @@ CREATE TABLE IF NOT EXISTS Ingredient(
 
 INSERT INTO Ingredient (ingredientID, name, portionSize, amountNeeded, quantityAvailable, recipeID) 
 VALUES 
-(4, 'lacus morbi quis', 'Large', 2, 83, 13)
-(1, 'convallis nunc proin at', 'Large', 1, 37, null)
-(2, 'faucibus cursus urna ut', 'Large', 2, 126, 11)
-(1, 'dapibus augue vel accumsan', 'Medium', 5, 97, 14)
-(2, 'felis eu sapien cursus', 'Large', 4, 199, 4)
-(2, 'non velit nec nisi', 'Large', 3, 78, 9)
-(1, 'luctus rutrum nulla', 'Small', 3, 143, 10)
-(2, 'a libero nam', 'Large', 5, 81, 11)
-(2, 'imperdiet sapien urna', 'Large', 1, 159, 14)
-(1, 'nam tristique tortor eu', 'Medium', 1, 17, 14)
-(2, 'bibendum felis sed interdum', 'Large', 5, 94, 10)
-(2, 'nulla suscipit ligula in', 'Large', 4, 120, 13)
-(2, 'ridiculus mus etiam vel', 'Small', 1, 172, 12)
-(4, 'magna bibendum imperdiet', 'Small', 5, 170, 13)
-(2, 'neque libero convallis', 'Large', 1, 172, 2)
-(3, 'ligula in lacus curabitur', 'Small', 1, 133, 6)
-(1, 'donec odio justo sollicitudin', 'Large', 4, 73, 2)
-(4, 'duis bibendum morbi', 'Small', 3, 2, null)
-(2, 'sed tristique in', 'Small', 3, 109, 9)
-(3, 'molestie hendrerit at vulputate', 'Large', 5, 124, 1)
-(3, 'integer non velit', 'Large', 1, 195, 11)
-(3, 'ut nulla sed', 'Large', 5, 191, 8)
-(1, 'id consequat in consequat', 'Small', 1, 107, 4)
-(1, 'eget congue eget semper', 'Medium', 4, 87, 2)
-(2, 'dictumst maecenas ut massa', 'Small', 5, 81, 7)
-(2, 'amet nunc viverra', 'Large', 3, 138, 3)
-(1, 'quam pharetra magna ac', 'Medium', 2, 198, 7)
-(2, 'vitae mattis nibh', 'Small', 3, 136, 10)
-(4, 'vulputate luctus cum', 'Small', 2, 175, 10)
+(1, 'lacus morbi quis', 'Large', 2, 83, 13),
+(2, 'convallis nunc proin at', 'Large', 1, 37, null),
+(3, 'faucibus cursus urna ut', 'Large', 2, 126, 11),
+(4, 'dapibus augue vel accumsan', 'Medium', 5, 97, 14),
+(5, 'felis eu sapien cursus', 'Large', 4, 199, 4),
+(6, 'non velit nec nisi', 'Large', 3, 78, 9),
+(7, 'luctus rutrum nulla', 'Small', 3, 143, 10),
+(8, 'a libero nam', 'Large', 5, 81, 11),
+(9, 'imperdiet sapien urna', 'Large', 1, 159, 14),
+(10, 'nam tristique tortor eu', 'Medium', 1, 17, 14),
+(11, 'bibendum felis sed interdum', 'Large', 5, 94, 10),
+(12, 'nulla suscipit ligula in', 'Large', 4, 120, 13),
+(13, 'ridiculus mus etiam vel', 'Small', 1, 172, 12),
+(14, 'magna bibendum imperdiet', 'Small', 5, 170, 13),
+(15, 'neque libero convallis', 'Large', 1, 172, 2),
+(16, 'ligula in lacus curabitur', 'Small', 1, 133, 6),
+(17, 'donec odio justo sollicitudin', 'Large', 4, 73, 2),
+(18, 'duis bibendum morbi', 'Small', 3, 2, null),
+(19, 'sed tristique in', 'Small', 3, 109, 9),
+(20, 'molestie hendrerit at vulputate', 'Large', 5, 124, 1),
+(21, 'integer non velit', 'Large', 1, 195, 11),
+(22, 'ut nulla sed', 'Large', 5, 191, 8),
+(23, 'id consequat in consequat', 'Small', 1, 107, 4),
+(24, 'eget congue eget semper', 'Medium', 4, 87, 2),
+(25, 'dictumst maecenas ut massa', 'Small', 5, 81, 7),
+(26, 'amet nunc viverra', 'Large', 3, 138, 3),
+(27, 'quam pharetra magna ac', 'Medium', 2, 198, 7),
+(28, 'vitae mattis nibh', 'Small', 3, 136, 10),
+(4, 'vulputate luctus cum', 'Small', 2, 175, 10),
 (3, 'lorem vitae mattis', 'Large', 1, 97, 15);
 
 -- CREATE TABLE IF NOT EXISTS OrderIngredient
@@ -725,45 +698,45 @@ CREATE TABLE IF NOT EXISTS OrderIngredient (
 
 INSERT INTO OrderIngredient (orderID, ingredientID) 
 VALUES 
-(6, 23)
-(6, 12)
-(21, 21)
-(8, 27)
-(14, 25)
-(12, 3)
-(3, 6)
-(20, 1)
-(5, 24)
-(23, 24)
-(12, 2)
-(19, 7)
-(25, 17)
-(21, 11)
-(14, 14)
-(12, 1)
-(4, 20)
-(21, 30)
-(6, 27)
-(21, 25)
-(8, 11)
-(3, 19)
-(13, 4)
-(15, 27)
-(15, 17)
-(8, 22)
-(24, 20)
-(2, 4)
-(19, 10)
-(18, 14)
-(11, 12)
-(23, 2)
-(9, 2)
-(2, 13)
-(12, 7)
-(24, 25)
-(8, 11)
-(7, 12)
-(7, 6)
+(6, 23),
+(6, 12),
+(21, 21),
+(8, 27),
+(14, 25),
+(12, 3),
+(3, 6),
+(20, 1),
+(5, 24),
+(23, 24),
+(12, 2),
+(19, 7),
+(25, 17),
+(21, 11),
+(14, 14),
+(12, 1),
+(4, 20),
+(21, 30),
+(6, 27),
+(21, 25),
+(8, 11),
+(3, 19),
+(13, 4),
+(15, 27),
+(15, 17),
+(8, 22),
+(24, 20),
+(2, 4),
+(19, 10),
+(18, 14),
+(11, 12),
+(23, 2),
+(9, 2),
+(2, 13),
+(12, 7),
+(24, 25),
+(8, 11),
+(7, 12),
+(7, 6),
 (16, 28); 
 
 CREATE TABLE IF NOT EXISTS Notification
@@ -777,28 +750,28 @@ CREATE TABLE IF NOT EXISTS Notification
     FOREIGN KEY (customerID) REFERENCES Customer(customerID) ON UPDATE CASCADE
 );
 
-INSERT INTO Notification (notifictionID, message, timstamp, customerID, farmerID) 
+INSERT INTO Notification (notificationID, timestamp, message, FarmerID, customerID) 
 VALUES 
-(1, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.', '11/9/2025', 7, 5)
-(2, 'Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', '11/10/2025', 28, 8)
-(3, 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.', '12/7/2024', 28, 8)
-(4, 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', '1/26/2025', 43, 8)
-(5, 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', '4/10/2025', 20, 1)
-(6, 'Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.', '8/12/2025', 7, 4)
-(7, 'Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.', '10/23/2025', 43, 7)
-(8, 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.', '6/28/2025', 23, 1)
-(9, 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', '6/24/2025', 18, 2)
-(10, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', '1/15/2025', 25, 2)
-(11, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.', '4/5/2025', 37, 5)
-(12, 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', '8/24/2025', 24, 7)
-(13, 'Suspendisse potenti. Nullam porttitor lacus at turpis.', '9/24/2025', 31, 7)
-(14, 'Maecenas pulvinar lobortis est. Phasellus sit amet erat.', '7/19/2025', 3, 8)
-(15, 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', '6/12/2025', 44, 8)
-(16, 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.', '3/13/2025', 23, 1)
-(17, 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', '2/22/2025', 37, 6)
-(18, 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', '5/5/2025', 21, 8)
-(19, 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', '4/9/2025', 23, 3)
-(20, 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.', '8/16/2025', 13, 8); 
+(1, '11/9/2025', 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque.', 7, 5),
+(2, '11/10/2025', 'Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.', 28, 8),
+(3, '12/7/2024', 'Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.', 28, 8),
+(4, '1/26/2025', 'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.', 43, 8),
+(5, '4/10/2025', 'Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.', 20, 1),
+(6, '8/12/2025', 'Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.', 7, 4),
+(7, '10/23/2025', 'Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.', 43, 7),
+(8, '6/28/2025', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat.', 23, 1),
+(9, '6/24/2025', 'Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.', 18, 2),
+(10, '1/15/2025', 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.', 25, 2),
+(11, '4/5/2025', 'Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.',  37, 5),
+(12, '8/24/2025', 'Vestibulum sed magna at nunc commodo placerat. Praesent blandit.', 24, 7),
+(13, '9/24/2025', 'Suspendisse potenti. Nullam porttitor lacus at turpis.', 31, 7),
+(14, '7/19/2025', 'Maecenas pulvinar lobortis est. Phasellus sit amet erat.', 3, 8),
+(15, '6/12/2025', 'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.', 44, 8),
+(16, '3/13/2025', 'Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.', 23, 1),
+(17, '2/22/2025', 'Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.', 37, 6),
+(18, '5/5/2025', 'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.', 21, 8),
+(19, '4/9/2025', 'Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', 23, 3),
+(20, '8/16/2025','Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.', 13, 8); 
 
 CREATE TABLE IF NOT EXISTS Traffic
 (
