@@ -55,7 +55,6 @@ def create_app():
 
     app.register_blueprint(customer_routes, url_prefix="/c")
 
-
     # Don't forget to return the app object
     return app
 

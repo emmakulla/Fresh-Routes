@@ -2,82 +2,41 @@ import streamlit as st
 import requests
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
+import pandas as pd
 
 # Initialize sidebar
 SideBarLinks()
 
-st.title("NGO Directory")
+st.title("Ingredient Directory")
 
 # API endpoint
-API_URL = "http://web-api:4000/ngo/ngos"
+API_URL = "http://web-api:4000"
 
-# Create filter columns
-col1, col2, col3 = st.columns(3)
+response = requests.get(f"{API_URL}/recipe/top")
 
-# Get unique values for filters from the API
-try:
-    response = requests.get(API_URL)
-    if response.status_code == 200:
-        ngos = response.json()
+if response.status_code == 200:
+    recipes = response.json()
+else:
+    st.error("Could not load recipes")
+    recipes = []
 
-        # Extract unique values for filters
-        countries = sorted(list(set(ngo["Country"] for ngo in ngos)))
-        focus_areas = sorted(list(set(ngo["Focus_Area"] for ngo in ngos)))
-        founding_years = sorted(list(set(ngo["Founding_Year"] for ngo in ngos)))
 
-        # Create filters
-        with col1:
-            selected_country = st.selectbox("Filter by Country", ["All"] + countries)
+row1 = st.columns(3)
+row2 = st.columns(3)
 
-        with col2:
-            selected_focus = st.selectbox("Filter by Focus Area", ["All"] + focus_areas)
+all_cols = row1 + row2
 
-        with col3:
-            selected_year = st.selectbox(
-                "Filter by Founding Year",
-                ["All"] + [str(year) for year in founding_years],
-            )
+for row, col in enumerate(all_cols):
+    tile = col.container(height=150)
 
-        # Build query parameters
-        params = {}
-        if selected_country != "All":
-            params["country"] = selected_country
-        if selected_focus != "All":
-            params["focus_area"] = selected_focus
-        if selected_year != "All":
-            params["founding_year"] = selected_year
+    if row < len(recipes): 
+        r = recipes[row]
 
-        # Get filtered data
-        filtered_response = requests.get(API_URL, params=params)
-        if filtered_response.status_code == 200:
-            filtered_ngos = filtered_response.json()
-
-            # Display results count
-            st.write(f"Found {len(filtered_ngos)} NGOs")
-
-            # Create expandable rows for each NGO
-            for ngo in filtered_ngos:
-                with st.expander(f"{ngo['Name']} ({ngo['Country']})"):
-                    col1, col2 = st.columns(2)
-
-                    with col1:
-                        st.write("**Basic Information**")
-                        st.write(f"**Country:** {ngo['Country']}")
-                        st.write(f"**Founded:** {ngo['Founding_Year']}")
-                        st.write(f"**Focus Area:** {ngo['Focus_Area']}")
-
-                    with col2:
-                        st.write("**Contact Information**")
-                        st.write(f"**Website:** [{ngo['Website']}]({ngo['Website']})")
-
-                    # Add a button to view full profile
-                    if st.button(f"View Full Profile", key=f"view_{ngo['NGO_ID']}"):
-                        st.session_state["selected_ngo_id"] = ngo["NGO_ID"]
-                        st.switch_page("pages/16_NGO_Profile.py")
-
+        tile.subheader(r["name"])
+        tile.write(r["description"])
+        tile.write(f"⭐ Popularity: {r['popularityScore']}")
     else:
-        st.error("Failed to fetch NGO data from the API")
+        # Empty tile placeholder
+        tile.write("")
 
-except requests.exceptions.RequestException as e:
-    st.error(f"Error connecting to the API: {str(e)}")
-    st.info("Please ensure the API server is running on http://web-api:4000")
+
