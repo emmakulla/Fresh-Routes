@@ -40,7 +40,7 @@ def FarmerHomeNav():
     )
 def ProduceEditNav():
     st.sidebar.page_link(
-        "pages/11_Produce_Edit.py", label="Produce Editor", icon="🚜")
+        "pages/11_Produce_Edit.py", label="Produce Editor", icon="🧺")
 
 def IngredientDirectoryNav():
     st.sidebar.page_link("pages/14_Ingredient_Directory.py", label="Ingredient Directory", icon="📁")
