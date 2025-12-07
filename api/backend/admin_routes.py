@@ -200,7 +200,7 @@ def delete_recipe(recipeID):
 @admin_routes.route("/farmers", methods=["GET"])
 def get_farmers():
     try:
-        cursor = db.get_db().cursor(dictionary=True)
+        cursor = db.get_db().cursor()
 
         cursor.execute(
             """

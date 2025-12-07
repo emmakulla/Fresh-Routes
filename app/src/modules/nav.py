@@ -81,7 +81,7 @@ def CustomerAccountsNav():
     )
 def CustomerChatsNav():
     st.sidebar.page_link(
-        "pages/28_Admin_Chats.py", label="Chat to Customers", icon="💬️"
+        "pages/28_Admin_Chat.py", label="Chat to Customers", icon="💬️"
     )
 
 # --------------------------------Links Function -----------------------------------------------
@@ -130,6 +130,7 @@ def SideBarLinks(show_home=False):
             AdminPageNav()
             RecipeCreatorNav()
             CustomerAccountsNav()
+            CustomerChatsNav()
 
     # Always show the About page at the bottom of the list of links
     AboutPageNav()

@@ -10,7 +10,7 @@ farmer_routes = Blueprint("farmer_routes", __name__)
 @farmer_routes.route("/produce", methods=["GET"])
 def get_all_produce():
     try:
-        cursor = db.get_db().cursor(dictionary=True)
+        cursor = db.get_db().cursor()
 
         cursor.execute(
             "SELECT produceID, name, expectedHarvestDate, quantityAvailable, unit " \
@@ -138,7 +138,7 @@ def update_produce(produceID):
 @farmer_routes.route("/recipe", methods=["GET"])
 def get_recipes():
     try:
-        cursor = db.get_db().cursor(dictionary=True)
+        cursor = db.get_db().cursor()
 
         query = """
                 SELECT recipeID, name, description, popularityScore
