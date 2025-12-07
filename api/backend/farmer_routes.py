@@ -147,8 +147,8 @@ def get_recipes():
             query = """
                 SELECT recipeID, name, description, popularityScore
                 FROM Recipe
-                WHERE popularityScore >= %s
                 ORDER BY popularityScore DESC
+                LIMIT 6
             """
             cursor.execute(query, (min_popularity,))
         else:
@@ -169,6 +169,7 @@ def get_recipes():
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
+
 # Inventory list for farmer
 @farmer_routes.route("/farmers/<int:farmerID>/inventory", methods=["GET"])
 def get_farmer_inventory(farmerID):
