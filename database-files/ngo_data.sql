@@ -1,7 +1,3 @@
-"""
-Creating tables and adding all the mock data to them
-"""
-
 Drop database if exists ngo_data;
 CREATE DATABASE IF NOT EXISTS ngo_data;
 USE ngo_data;
