@@ -7,8 +7,9 @@ import pydeck as pdk
 from urllib.error import URLError
 from modules.nav import SideBarLinks
 
-SideBarLinks()
+# Call the SideBarLinks from the nav module in the modules directory
 
+SideBarLinks()
 # add the logo
 add_logo("assets/logo.png", height=400)
 
