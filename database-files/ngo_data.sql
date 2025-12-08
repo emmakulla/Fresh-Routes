@@ -1567,40 +1567,6 @@ VALUES
 (7, 6),
 (16, 28); 
 
-CREATE TABLE IF NOT EXISTS Notification
-(
-    notificationID INT PRIMARY KEY,
-    timestamp DATE NOT NULL,
-    message TEXT,
-    FarmerID INT NOT NULL,
-    customerID INT NOT NULL,
-    FOREIGN KEY (FarmerID) REFERENCES Farmer(farmerID),
-    FOREIGN KEY (customerID) REFERENCES Customer(customerID) ON UPDATE CASCADE
-);
-
-INSERT INTO Notification (notificationID, timestamp, message, FarmerID, customerID) 
-VALUES 
-(1, '2025-11-09', 'Your order has been shipped!', 5, 7),
-(2, '2025-11-10', 'New produce available from your favorite farmer.', 8, 28),
-(3, '2025-12-07', 'Delivery scheduled for tomorrow.', 8, 28),
-(4, '2025-01-26', 'Weekly menu updated with new recipes.', 8, 43),
-(5, '2025-04-10', 'Your subscription has been renewed.', 1, 20),
-(6, '2025-08-12', 'Fresh harvest arriving this week!', 4, 7),
-(7, '2025-10-23', 'Special discount on seasonal produce.', 7, 43),
-(8, '2025-06-28', 'Your meal plan has been updated.', 1, 23),
-(9, '2025-06-24', 'Driver en route with your delivery.', 2, 18),
-(10, '2025-01-15', 'Thank you for your order!', 2, 25),
-(11, '2025-04-05', 'New farmer joined the network.', 5, 37),
-(12, '2025-08-24', 'Your feedback has been received.', 7, 24),
-(13, '2025-09-24', 'Order confirmed for next week.', 7, 31),
-(14, '2025-07-19', 'Produce quality report available.', 8, 3),
-(15, '2025-06-12', 'Reminder: Update your dietary preferences.', 8, 44),
-(16, '2025-03-13', 'Your order is being prepared.', 1, 23),
-(17, '2025-02-22', 'Welcome to FreshRoutes!', 6, 37),
-(18, '2025-05-05', 'Seasonal produce now in stock.', 8, 21),
-(19, '2025-04-09', 'Delivery completed successfully.', 3, 23),
-(20, '2025-08-16', 'Rate your recent order.', 8, 13);
-
 CREATE TABLE IF NOT EXISTS Traffic
 (
     locationID INT PRIMARY KEY,

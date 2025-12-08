@@ -44,3 +44,5 @@ Utilizing the Flask Library in Python, we implemented a RESTful Flask API to man
   - `./datasets` - folder for storing datasets
   - `./ml-src` - folder for storing ML models
 - The repo also contains a `docker-compose.yaml` file that is used to set up the Docker containers for the front end app, the REST API, and MySQL database. This file is used to run the app and API in Docker containers.
+
+Massimo Prag, MYSQL_ROOT_PASSWORD = yourpassword123
