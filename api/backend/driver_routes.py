@@ -5,6 +5,7 @@ from mysql.connector import Error
 # Blueprint for customer-facing routes
 driver_routes = Blueprint("driver_routes", __name__)
 
+#List all orders for driver
 #List all order for driver
 
 @driver_routes.route("/driver/<int:driverID>/order", methods=["GET"])
@@ -13,17 +14,38 @@ def get_all_deliveries(driverID):
         cursor = db.get_db().cursor(dictionary=True)  # dictionary=True gives dict results
         cursor.execute(
             """
-            SELECT OrderID, status, orderDate, scheduledTime, deliveryAddress, DriverID
-            FROM Orders
+            SELECT orderID, orderDate, scheduledTime, deliveryAddress, status, quantityOrdered, DriverID, customerID
+            FROM Orders 
             WHERE DriverID = %s
+            ORDER BY CASE status
+                WHEN 'out_for_delivery' THEN 1
+                WHEN 'confirmed' THEN 2
+                WHEN 'preparing' THEN 3
+                WHEN 'pending' THEN 4
+                ELSE 5
+            END, scheduledTime
             """,
             (driverID,),
-        )
-        order_list = cursor.fetchall()
+            )
+        rows = cursor.fetchall()
         cursor.close()
 
-        return jsonify(order_list), 200
+        # Convert to JSON-serializable format
+        result = []
+        for row in rows:
+            result.append({
+                'orderID': row['orderID'],
+                'orderDate': str(row['orderDate']) if row['orderDate'] else None,
+                'scheduledTime': str(row['scheduledTime']) if row['scheduledTime'] else None,
+                'deliveryAddress': row['deliveryAddress'],
+                'status': row['status'],
+                'quantityOrdered': row['quantityOrdered'],
+                'DriverID': row['DriverID'],
+                'customerID': row['customerID']
+            })
 
+        return jsonify(result), 200
+    
     except Error as e:
         return jsonify({"error": str(e)}), 500
 
@@ -42,10 +64,9 @@ def update_order_status(driverID, orderID):
         params = []
 
         # Only allow updating a clear set of fields
-        
         for field in allowed_fields:
             if field in data:
-                update_fields.append(f"{field} = %s")
+                update_fields.append(f"`{field}` = %s")
                 params.append(data[field])
 
         if not update_fields:
@@ -53,29 +74,24 @@ def update_order_status(driverID, orderID):
 
         cursor = db.get_db().cursor()
 
-        # Make sure the produce exists
+        # Make sure the order exists for this driver
         cursor.execute(
-            "SELECT orderID " \
-            "FROM `Order` " \
-            "WHERE driverID = %s AND orderID = %s",
+            "SELECT orderID FROM Orders WHERE DriverID = %s AND orderID = %s",
             (driverID, orderID,),
         )
-        if not cursor.fetchall():
+        if not cursor.fetchone():
             cursor.close()
-            return jsonify({"error": "Driver entry not found"}), 404
+            return jsonify({"error": "Order not found for this driver"}), 404
 
-        # executes function 
+        # Execute update
         params.append(driverID)
         params.append(orderID)
-        query = f"UPDATE `Order` SET {', '.join(update_fields)} WHERE driverID = %s AND orderID = %s"
+        query = f"UPDATE Orders SET {', '.join(update_fields)} WHERE DriverID = %s AND orderID = %s"
         cursor.execute(query, params)
         db.get_db().commit()
         cursor.close()
 
-        return jsonify({"message": "Driver updated successfully"}), 200
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"message": "Order status updated successfully"}), 200
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
