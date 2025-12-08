@@ -12,8 +12,7 @@ st.set_page_config(layout="wide")
 SideBarLinks()
 
 if "customer_id" not in st.session_state:
-    show_error("No customer ID found")
-
+    st.session_state["customer_id"] = 1
 
 API_URL = "http://web-api:4000"
 
