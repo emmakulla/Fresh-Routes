@@ -86,7 +86,7 @@ def CustomerAccountsNav():
     )
 def CustomerChatsNav():
     st.sidebar.page_link(
-        "pages/28_Admin_Chat.py", label="Chat to Customers + Drivers", icon="💬️"
+        "pages/28_Admin_Chat.py", label="Respond to Chats", icon="💬️"
     )
 
 # --------------------------------Links Function -----------------------------------------------

@@ -83,11 +83,11 @@ with col3:
     st.markdown("""
     <div class="action-card">
         <div class="action-icon">💬</div>
-        <div class="section-title">Customer Chats</div>
-        <p>Respond to customer inquiries.</p>
+        <div class="section-title">Customer & Driver Chats</div>
+        <p>Respond to  inquiries.</p>
     </div>
     """, unsafe_allow_html=True)
-    if st.button('Open Customer Chats', use_container_width=True):
+    if st.button('Open Customer & Driver Chats', use_container_width=True):
         st.switch_page('pages/28_Admin_Chat.py')
 
 

@@ -44,6 +44,13 @@ if customer_list:
             save_chats(chats)
             st.success("Message sent!")
 
+# Resolve customer chat (Clear conversation)
+if st.button(f"Resolve Chat with {selected_customer}"):
+    chats["customers"][selected_customer] = []
+    save_chats(chats)
+    st.success(f"Chat with {selected_customer} has been resolved and cleared!")
+    st.rerun()
+
 else:
     st.info("No customer messages yet.")
 
@@ -85,6 +92,13 @@ if driver_list:
                 })
                 save_chats(chats)
                 st.success("Message sent!")
+
+    # Resolve driver chat for selected order
+    if st.button(f"Resolve Chat for Order {selected_order}"):
+        chats["drivers"][selected_driver][selected_order] = []
+        save_chats(chats)
+        st.success(f"Chat for Order {selected_order} has been resolved and cleared!")
+        st.rerun()
 
     else:
         st.info("No orders/messages for this driver yet.")
