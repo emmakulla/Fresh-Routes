@@ -5,13 +5,16 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 SideBarLinks()
-
 st.title("📨 Admin Support Inbox")
 
 # Load chat data
 chats = load_chats()
 if not isinstance(chats, dict):
     chats = {}
+
+# Initialize keys if missing
+if "customers" not in chats:
+    chats["customers"] = {}
 
 # ------------------ CUSTOMER CHAT ------------------
 st.header("💜 Chat with Customers")
@@ -43,13 +46,16 @@ if customer_list:
             })
             save_chats(chats)
             st.success("Message sent!")
+            st.session_state["refresh"] = not st.session_state.get("refresh", False)
+            st.stop()
 
-# Resolve customer chat (Clear conversation)
-if st.button(f"Resolve Chat with {selected_customer}"):
-    chats["customers"][selected_customer] = []
-    save_chats(chats)
-    st.success(f"Chat with {selected_customer} has been resolved and cleared!")
-    st.rerun()
+    # Resolve customer chat
+    if st.button(f"Resolve Chat with {selected_customer}"):
+        chats["customers"][selected_customer] = []
+        save_chats(chats)
+        st.success(f"Chat with {selected_customer} has been resolved!")
+        st.session_state["refresh"] = not st.session_state.get("refresh", False)
+        st.stop()
 
 else:
     st.info("No customer messages yet.")
@@ -62,16 +68,11 @@ if driver_list:
     selected_driver = st.selectbox("Select Driver:", driver_list)
     st.subheader(f"Chat with {selected_driver}")
 
-    driver_orders = chats["drivers"].get(selected_driver, {})
-
-    # Choose order to chat about
-    order_list = list(driver_orders.keys())
-    if order_list:
-        selected_order = st.selectbox("Select Order:", order_list)
-        st.markdown(f"**Order:** {selected_order}")
-
-        # Show chat history for that order
-        for entry in driver_orders[selected_order]:
+    driver_chat = chats["drivers"][selected_driver]
+    if not driver_chat:
+        st.info("No messages yet. This chat may have been resolved.")
+    else:
+        for entry in driver_chat:
             speaker = entry["from"]
             message = entry["message"]
             timestamp = entry.get("timestamp", "")
@@ -80,31 +81,35 @@ if driver_list:
             else:
                 st.markdown(f"<div style='color: #2e7d32'><b>{selected_driver}:</b> {message} <i>({timestamp})</i></div>", unsafe_allow_html=True)
 
-        # Admin response form
-        with st.form(f"driver_reply_form_{selected_driver}_{selected_order}"):
-            reply = st.text_area("Your message to driver")
-            submitted = st.form_submit_button("Send")
-            if submitted and reply.strip():
-                driver_orders[selected_order].append({
-                    "from": "admin",
-                    "message": reply.strip(),
-                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                })
-                save_chats(chats)
-                st.success("Message sent!")
+    # Admin response form for driver
+    with st.form(f"driver_reply_form_{selected_driver}"):
+        reply = st.text_area("Your message to driver")
+        submitted = st.form_submit_button("Send")
+        if submitted and reply.strip():
+            driver_chat.append({
+                "from": "admin",
+                "message": reply.strip(),
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            })
+            chats["drivers"][selected_driver] = driver_chat
+            save_chats(chats)
+            st.success("Message sent!")
+            st.session_state["refresh"] = not st.session_state.get("refresh", False)
+            st.stop()
 
-    # Resolve driver chat for selected order
-    if st.button(f"Resolve Chat for Order {selected_order}"):
-        chats["drivers"][selected_driver][selected_order] = []
+    # Resolve driver chat
+    if st.button(f"Resolve Chat with {selected_driver}"):
+        chats["drivers"][selected_driver] = []
         save_chats(chats)
-        st.success(f"Chat for Order {selected_order} has been resolved and cleared!")
-        st.rerun()
-
-    else:
-        st.info("No orders/messages for this driver yet.")
+        st.success(f"Chat with {selected_driver} has been resolved!")
+        st.session_state["refresh"] = not st.session_state.get("refresh", False)
+        st.stop()
 
 else:
     st.info("No driver messages yet.")
+
+
+
 
 
 
