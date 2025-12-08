@@ -223,7 +223,7 @@ def create_order():
         return jsonify({"error": str(e)}), 500
 
     
-"""@customer_routes.route("/customers/<int:customer_id>", methods=["DELETE"])
+@customer_routes.route("/customers/<int:customer_id>", methods=["DELETE"])
 def delete_customer(customer_id):
     try:
         cursor = db.get_db().cursor()

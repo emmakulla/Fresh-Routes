@@ -363,3 +363,33 @@ def update_weekly_menu(menuID):
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
+
+@admin_routes.route("/customers", methods=["GET"])
+def get_all_customers_with_feedback():
+    try:
+        cursor = db.get_db().cursor(dictionary=True)
+
+        query = """
+            SELECT 
+                c.customerID,
+                c.firstName,
+                c.lastName,
+                c.email,
+                (
+                    SELECT content
+                    FROM CustomerMessages cm
+                    WHERE cm.customerID = c.customerID
+                    ORDER BY timestamp DESC
+                    LIMIT 1
+                ) AS latestFeedback
+            FROM Customer c;
+        """
+
+        cursor.execute(query)
+        customers = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(customers), 200
+
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
