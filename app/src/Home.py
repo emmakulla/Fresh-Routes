@@ -135,7 +135,8 @@ with col3:
         st.session_state.update({
             "authenticated": True,
             "role": "driver",
-            "first_name": "Bob"
+            "first_name": "Bob",
+            "driver_id": 6  # Bob Johnson
         })
         st.switch_page("pages/22_Driver_Home.py")
 
@@ -178,10 +179,3 @@ st.markdown("""
     <p>Built as a Northeastern University CS3200 project.</p>
 </div>
 """, unsafe_allow_html=True)
-
-
-
-
-
-
-

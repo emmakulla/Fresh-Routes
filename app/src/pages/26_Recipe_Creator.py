@@ -10,55 +10,53 @@ from modules.nav import SideBarLinks
 SideBarLinks()
 
 st.write("""
-# Simple Iris Flower Prediction App
+# Recipe Creator
 
-This example is borrowed from [The Data Professor](https://github.com/dataprofessor/streamlit_freecodecamp/tree/main/app_7_classification_iris)
-         
-This app predicts the **Iris flower** type!
+This is where you will create and save new recipes.
 """)
 
-st.sidebar.header('User Input Parameters')
+st.sidebar.header('Recipe Details')
 
-# Below, different user inputs are defined.  When you view the UI, 
-# notice that they are in the sidebar. 
-def user_input_features():
-    sepal_length = st.sidebar.slider('Sepal length', 4.3, 7.9, 5.4)
-    sepal_width = st.sidebar.slider('Sepal width', 2.0, 4.4, 3.4)
-    petal_length = st.sidebar.slider('Petal length', 1.0, 6.9, 1.3)
-    petal_width = st.sidebar.slider('Petal width', 0.1, 2.5, 0.2)
-    data = {'sepal_length': sepal_length,
-            'sepal_width': sepal_width,
-            'petal_length': petal_length,
-            'petal_width': petal_width}
-    features = pd.DataFrame(data, index=[0])
-    return features
+#Recipe Title 
+recipe_title = st.sidebar.text_input("Recipe Title")
 
-# get a data frame with the input features from the user
-df = user_input_features()
+#Photo Upload
+photo = st.sidebar.file_uploader("Upload a photo of the dish", type=["jpg", "png"])
 
-# show the exact values the user entered in a table.
-st.subheader('User Input parameters')
-st.write(df)
+#Recipe Description
+recipe_description = st.sidebar.text_area("Recipe Description", height=150) 
 
-# load the standard iris dataset and generate a 
-# random forest classifier 
-iris = datasets.load_iris()
-X = iris.data
-Y = iris.target
-clf = RandomForestClassifier()
+#Number of Ingredients
+ingredient_count = st.sidebar.number_input(
+    "How many ingredients?", 
+    min_value=1, 
+    max_value=20,
+    value=5)
 
-# fit the model
-clf.fit(X, Y)
+#Ingredient Inputs
 
-# use the values entered by the user for prediction
-prediction = clf.predict(df)
-prediction_proba = clf.predict_proba(df)
+st.subheader("Ingredients")
 
-st.subheader('Class labels and their corresponding index number')
-st.write(iris.target_names)
+#Empty Ingredient table 
+ingredient_data = {
+    "Ingredient": ["" for _ in range(ingredient_count)],
+    "Unit": ["" for _ in range(ingredient_count)],
+    "Amount": ["" for _ in range(ingredient_count)]
+}
 
-st.subheader('Prediction')
-st.write(iris.target_names[prediction])
+df_ingredients = pd.DataFrame(ingredient_data)  
 
-st.subheader('Prediction Probability')
-st.write(prediction_proba)
+editable_ingredients = st.data_editor(df, num_rows="dynamic")
+
+#Save button
+if save: 
+    st.success("Recipe saved!")
+    st.write("## Recipe Summary")
+    st.write(f"**Title:** {recipe_title}")
+    st.write(f"**Description:** {recipe_description}")
+    st.write("### Ingredients")
+    st.dataframe(editable_ingredients)  
+
+    if photo: 
+        st.image(photo, caption="Uploaded Photo", width = 250)
+
