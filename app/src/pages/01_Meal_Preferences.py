@@ -12,9 +12,7 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout="wide")
 SideBarLinks()
 
-# ============================
-#       STYLING
-# ============================
+# Style
 st.markdown("""
 <style>
 
@@ -59,18 +57,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ============================
-#   PAGE HEADER
-# ============================
+# Header
 st.markdown("""
 <div class="page-title">🥗 Meal Preferences</div>
 <div class="subtitle">Update your dietary preferences, delivery schedule, meal quantity, and start date.</div>
 """, unsafe_allow_html=True)
 
-# ============================
-#   DIETARY PREFERENCES
-# ============================
-
+# Dietary Preferences
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
 
@@ -91,10 +84,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# ============================
-#   DELIVERY PREFERENCES
-# ============================
-
+# Delivery Preferences
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Delivery Preferences</div>", unsafe_allow_html=True)
@@ -112,10 +102,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# ============================
-#     MEALS PER DELIVERY
-# ============================
-
+# Meals Per Delivery
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Amount of Meals Per Delivery</div>", unsafe_allow_html=True)
@@ -125,10 +112,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# ============================
-#       START DATE
-# ============================
-
+# Start Date
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Select Start Date</div>", unsafe_allow_html=True)
@@ -138,10 +122,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# ============================
-#       CHAT SECTION
-# ============================
-
+# Chat Section
 st.markdown("<div class='card'>", unsafe_allow_html=True)
 
 st.markdown("<div class='section-title'>Chat</div>", unsafe_allow_html=True)
@@ -161,10 +142,7 @@ st.text_input("Send a message:", placeholder="Type here...")
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# ============================
-#   SAVE PREFERENCES SECTION
-# ============================
-
+# Save Preferences
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Save Your Preferences</div>", unsafe_allow_html=True)
@@ -192,10 +170,6 @@ with st.container():
             "meals_per_delivery": meals,
             "start_date": str(start_date)
         }
-
-        # --- Placeholder for backend POST request ---
-        # Example:
-        # response = requests.put("http://localhost:4000/customers/1/preferences", json=preferences)
 
         st.success("Your preferences have been saved successfully! 🎉")
 

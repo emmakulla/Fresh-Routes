@@ -8,15 +8,13 @@ from urllib.error import URLError
 from modules.nav import SideBarLinks
 from datetime import date
 
-# ---- Page Config ----
+
 st.set_page_config(layout='wide')
 
-# ---- Sidebar ----
+
 SideBarLinks()
 
-# ===============================
-#       CUSTOM STYLING
-# ===============================
+# Style
 st.markdown("""
 <style>
 
@@ -74,17 +72,12 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ===============================
-#        HERO SECTION
-# ===============================
+# Header
 st.markdown("""
 <div class="meal-header">MEALS</div>
 """, unsafe_allow_html=True)
 
-# ===============================
-#   MEAL PLAN STATE (SESSION)
-#   Each slot: {"recipe": str | None, "date": date | None}
-# ===============================
+# Meal Plan
 if "meal_plan" not in st.session_state:
     st.session_state.meal_plan = {
         "Monday":   {"Breakfast": {"recipe": None, "date": None},
@@ -113,9 +106,7 @@ if "meal_plan" not in st.session_state:
 if "selected_recipe" not in st.session_state:
     st.session_state.selected_recipe = None
 
-# ===============================
-#     WEEK GRID (TOP SECTION)
-# ===============================
+# Week Grid
 week_days = list(st.session_state.meal_plan.keys())
 cols = st.columns(7)
 
@@ -150,9 +141,7 @@ for i, day in enumerate(week_days):
 
 st.divider()
 
-# ===============================
-#     RECIPE SELECTION SECTION
-# ===============================
+# Recipe Selection
 st.subheader("Available Recipes")
 
 recipe_cols = st.columns(5)
@@ -222,9 +211,7 @@ for idx, col in enumerate(recipe_cols):
 
 st.divider()
 
-# ===============================
-#   ASSIGN SELECTED RECIPE TO MEAL
-# ===============================
+# Assign Recipe to Meal
 st.subheader("Assign Selected Recipe to a Meal")
 
 selected_recipe = st.session_state.selected_recipe
