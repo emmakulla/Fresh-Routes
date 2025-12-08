@@ -66,9 +66,9 @@ def AvailabilityCalendarNav():
 def RoutePlannerNav():
     st.sidebar.page_link("pages/24_Route_Planner.py", label="Route Planner", icon="🧭")
 
-def ManageOrdersNav():
+def DriverChatNav():
     st.sidebar.page_link(
-        "pages/29_Driver_Chat.py", label="Manage Orders + Chat to Admin", icon="💬️"
+        "pages/29_Driver_Chat.py", label="Driver Chat", icon="💬️"
     )
 
 
@@ -128,7 +128,7 @@ def SideBarLinks(show_home=False):
             DriverHomeNav()
             AvailabilityCalendarNav()
             RoutePlannerNav()
-            ManageOrdersNav()
+            DriverChatNav()
 
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":

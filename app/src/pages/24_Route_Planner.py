@@ -29,43 +29,6 @@ st.markdown("""
     margin: 0.5rem 0 0 0;
 }
 
-.map-container {
-    background: linear-gradient(135deg, #2d3436, #636e72);
-    border-radius: 16px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.map-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    pointer-events: none;
-}
-
-.stop-marker {
-    background: #ff6b6b;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 14px;
-    border: 3px solid white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
 .order-card {
     background: white;
     border-radius: 12px;
@@ -189,7 +152,7 @@ stat_cols = st.columns(4)
 with stat_cols[0]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #ffc107;">�� {len(active_orders)}</div>
+        <div class="stats-number" style="color: #ffc107;">{len(active_orders)}</div>
         <div class="stats-label">Active Deliveries</div>
     </div>
     """, unsafe_allow_html=True)
@@ -197,7 +160,7 @@ with stat_cols[0]:
 with stat_cols[1]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #007bff;">⏳ {len(pending_orders)}</div>
+        <div class="stats-number" style="color: #007bff;">{len(pending_orders)}</div>
         <div class="stats-label">Pending</div>
     </div>
     """, unsafe_allow_html=True)
@@ -205,7 +168,7 @@ with stat_cols[1]:
 with stat_cols[2]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #28a745;">✅ {len(delivered_today)}</div>
+        <div class="stats-number" style="color: #28a745;">{len(delivered_today)}</div>
         <div class="stats-label">Delivered</div>
     </div>
     """, unsafe_allow_html=True)
@@ -213,184 +176,146 @@ with stat_cols[2]:
 with stat_cols[3]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #1a1a2e;">📍 {len(orders)}</div>
+        <div class="stats-number" style="color: #1a1a2e;">{len(orders)}</div>
         <div class="stats-label">Total Orders</div>
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ---- Split View: Map + Orders ----
-map_col, orders_col = st.columns([1, 1])
+# ---- Order Management Section ----
+st.subheader("Order Management")
 
-with map_col:
-    st.subheader("🗺️ Delivery Route Map")
-    
-    # Generate fake map with delivery stops
-    active_addresses = [o.get('deliveryAddress', 'Unknown') for o in active_orders[:6]]
-    
-    # Create a visual map representation
-    st.markdown("""
-    <div class="map-container">
-        <div class="map-overlay"></div>
-        <div style="z-index: 10; text-align: center;">
-            <div style="font-size: 4rem; margin-bottom: 1rem;">🗺️</div>
-            <h3 style="margin: 0;">Interactive Map</h3>
-            <p style="color: #a0a0a0; margin-top: 0.5rem;">Route visualization coming soon</p>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Show delivery stops list
-    if active_orders:
-        st.markdown("#### 📍 Today's Stops")
-        for idx, order in enumerate(active_orders[:6], 1):
-            status_icon = "🚚" if order.get('status') == 'out_for_delivery' else "📦"
+# Filter tabs
+filter_tab = st.radio(
+    "Filter orders:",
+    ["🚚 Active", "⏳ Pending", "✅ Delivered", "📋 All"],
+    horizontal=True,
+    label_visibility="collapsed"
+)
+
+# Filter orders based on selection
+if filter_tab == "Active":
+    display_orders = [o for o in orders if o.get('status') in ['out_for_delivery', 'confirmed', 'preparing']]
+elif filter_tab == "Pending":
+    display_orders = [o for o in orders if o.get('status') == 'pending']
+elif filter_tab == "Delivered":
+    display_orders = [o for o in orders if o.get('status') == 'delivered']
+else:
+    display_orders = orders
+
+if display_orders:
+    for order in display_orders:
+        order_id = order.get('orderID')
+        status = order.get('status', 'pending')
+        address = order.get('deliveryAddress', 'Unknown')
+        qty = order.get('quantityOrdered', 0)
+        scheduled = order.get('scheduledTime', 'N/A')
+        
+        # Status display
+        status_labels = {
+            'out_for_delivery': 'Out for Delivery',
+            'confirmed': '✓ Confirmed',
+            'preparing': 'Preparing',
+            'pending': 'Pending',
+            'delivered': '✅ Delivered',
+            'cancelled': '❌ Cancelled'
+        }
+        
+        with st.container():
             st.markdown(f"""
-            <div style="display: flex; align-items: center; padding: 0.5rem; background: #f8f9fa; border-radius: 8px; margin-bottom: 0.5rem;">
-                <div style="background: #ff6b6b; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 0.75rem;">{idx}</div>
-                <div>
-                    <strong>{order.get('deliveryAddress', 'Unknown')}</strong><br>
-                    <small style="color: #6c757d;">{status_icon} Order #{order.get('orderID')}</small>
+            <div class="order-card {status}">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <div>
+                        <strong style="font-size: 1.1rem;">Order #{order_id}</strong>
+                        <span class="status-badge status-{status}" style="margin-left: 0.5rem;">{status.replace('_', ' ')}</span>
+                    </div>
+                    <div style="text-align: right; font-size: 0.85rem; color: #6c757d;">
+                        Qty: {qty}
+                    </div>
+                </div>
+                <div style="margin-top: 0.5rem;">
+                    <div>📍 {address}</div>
+                    <div style="color: #6c757d; font-size: 0.85rem;">📅 Scheduled: {scheduled}</div>
                 </div>
             </div>
             """, unsafe_allow_html=True)
-    else:
-        st.info("No active deliveries to display on the map.")
-
-with orders_col:
-    st.subheader("📋 Order Management")
-    
-    # Filter tabs
-    filter_tab = st.radio(
-        "Filter orders:",
-        ["🚚 Active", "⏳ Pending", "✅ Delivered", "📋 All"],
-        horizontal=True,
-        label_visibility="collapsed"
-    )
-    
-    # Filter orders based on selection
-    if filter_tab == "🚚 Active":
-        display_orders = [o for o in orders if o.get('status') in ['out_for_delivery', 'confirmed', 'preparing']]
-    elif filter_tab == "⏳ Pending":
-        display_orders = [o for o in orders if o.get('status') == 'pending']
-    elif filter_tab == "✅ Delivered":
-        display_orders = [o for o in orders if o.get('status') == 'delivered']
-    else:
-        display_orders = orders
-    
-    if display_orders:
-        for order in display_orders:
-            order_id = order.get('orderID')
-            status = order.get('status', 'pending')
-            address = order.get('deliveryAddress', 'Unknown')
-            qty = order.get('quantityOrdered', 0)
-            scheduled = order.get('scheduledTime', 'N/A')
             
-            # Status display
-            status_labels = {
-                'out_for_delivery': '🚚 Out for Delivery',
-                'confirmed': '✓ Confirmed',
-                'preparing': '👨‍�� Preparing',
-                'pending': '⏳ Pending',
-                'delivered': '✅ Delivered',
-                'cancelled': '❌ Cancelled'
-            }
-            
-            with st.container():
-                st.markdown(f"""
-                <div class="order-card {status}">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <strong style="font-size: 1.1rem;">Order #{order_id}</strong>
-                            <span class="status-badge status-{status}" style="margin-left: 0.5rem;">{status.replace('_', ' ')}</span>
-                        </div>
-                        <div style="text-align: right; font-size: 0.85rem; color: #6c757d;">
-                            Qty: {qty}
-                        </div>
-                    </div>
-                    <div style="margin-top: 0.5rem;">
-                        <div>📍 {address}</div>
-                        <div style="color: #6c757d; font-size: 0.85rem;">📅 Scheduled: {scheduled}</div>
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
+            # Action buttons (only for active orders)
+            if status in ['out_for_delivery', 'confirmed', 'preparing', 'pending']:
+                btn_cols = st.columns([1, 1, 1])
                 
-                # Action buttons (only for active orders)
-                if status in ['out_for_delivery', 'confirmed', 'preparing', 'pending']:
-                    btn_cols = st.columns([1, 1, 1])
-                    
-                    with btn_cols[0]:
-                        if status != 'out_for_delivery' and st.button("🚚 Start", key=f"start_{order_id}", use_container_width=True):
-                            try:
-                                response = requests.put(
-                                    f"{API_BASE}/order/{order_id}",
-                                    json={"status": "out_for_delivery"}
-                                )
-                                if response.status_code == 200:
-                                    st.success("Started delivery!")
-                                    st.cache_data.clear()
-                                    st.rerun()
+                with btn_cols[0]:
+                    if status != 'out_for_delivery' and st.button("🚚 Start", key=f"start_{order_id}", use_container_width=True):
+                        try:
+                            response = requests.put(
+                                f"{API_BASE}/order/{order_id}",
+                                json={"status": "out_for_delivery"}
+                            )
+                            if response.status_code == 200:
+                                st.success("Started delivery!")
+                                st.cache_data.clear()
+                                st.rerun()
+                            else:
+                                st.error("Failed to update")
+                        except Exception as e:
+                            st.error(f"Error: {e}")
+                
+                with btn_cols[1]:
+                    if status == 'out_for_delivery' and st.button("✅ Deliver", key=f"deliver_{order_id}", use_container_width=True):
+                        try:
+                            response = requests.put(
+                                f"{API_BASE}/order/{order_id}",
+                                json={"status": "delivered"}
+                            )
+                            if response.status_code == 200:
+                                st.success("Marked as delivered!")
+                                st.cache_data.clear()
+                                st.rerun()
+                            else:
+                                st.error("Failed to update")
+                        except Exception as e:
+                            st.error(f"Error: {e}")
+                
+                with btn_cols[2]:
+                    if st.button("⚠️ Issue", key=f"issue_{order_id}", use_container_width=True):
+                        st.session_state[f'show_issue_{order_id}'] = True
+                
+                # Issue reporting form
+                if st.session_state.get(f'show_issue_{order_id}', False):
+                    with st.expander("Report Delivery Issue", expanded=True):
+                        issue_desc = st.text_area("Describe the issue:", key=f"issue_desc_{order_id}")
+                        issue_cols = st.columns(2)
+                        with issue_cols[0]:
+                            if st.button("Submit Issue", key=f"submit_issue_{order_id}"):
+                                if issue_desc:
+                                    try:
+                                        response = requests.post(
+                                            f"http://web-api:4000/d/driver/{order_id}/order/deliveryIssue",
+                                            json={
+                                                "issueID": int(datetime.now().timestamp()),
+                                                "timestamp": datetime.now().strftime('%Y-%m-%d'),
+                                                "description": issue_desc
+                                            }
+                                        )
+                                        if response.status_code == 201:
+                                            st.success("Issue reported!")
+                                            st.session_state[f'show_issue_{order_id}'] = False
+                                            st.rerun()
+                                        else:
+                                            st.error("Failed to report issue")
+                                    except Exception as e:
+                                        st.error(f"Error: {e}")
                                 else:
-                                    st.error("Failed to update")
-                            except Exception as e:
-                                st.error(f"Error: {e}")
-                    
-                    with btn_cols[1]:
-                        if status == 'out_for_delivery' and st.button("✅ Deliver", key=f"deliver_{order_id}", use_container_width=True):
-                            try:
-                                response = requests.put(
-                                    f"{API_BASE}/order/{order_id}",
-                                    json={"status": "delivered"}
-                                )
-                                if response.status_code == 200:
-                                    st.success("Marked as delivered!")
-                                    st.cache_data.clear()
-                                    st.rerun()
-                                else:
-                                    st.error("Failed to update")
-                            except Exception as e:
-                                st.error(f"Error: {e}")
-                    
-                    with btn_cols[2]:
-                        if st.button("⚠️ Issue", key=f"issue_{order_id}", use_container_width=True):
-                            st.session_state[f'show_issue_{order_id}'] = True
-                    
-                    # Issue reporting form
-                    if st.session_state.get(f'show_issue_{order_id}', False):
-                        with st.expander("Report Delivery Issue", expanded=True):
-                            issue_desc = st.text_area("Describe the issue:", key=f"issue_desc_{order_id}")
-                            issue_cols = st.columns(2)
-                            with issue_cols[0]:
-                                if st.button("Submit Issue", key=f"submit_issue_{order_id}"):
-                                    if issue_desc:
-                                        try:
-                                            response = requests.post(
-                                                f"http://web-api:4000/d/driver/{order_id}/order/deliveryIssue",
-                                                json={
-                                                    "issueID": int(datetime.now().timestamp()),
-                                                    "timestamp": datetime.now().strftime('%Y-%m-%d'),
-                                                    "description": issue_desc
-                                                }
-                                            )
-                                            if response.status_code == 201:
-                                                st.success("Issue reported!")
-                                                st.session_state[f'show_issue_{order_id}'] = False
-                                                st.rerun()
-                                            else:
-                                                st.error("Failed to report issue")
-                                        except Exception as e:
-                                            st.error(f"Error: {e}")
-                                    else:
-                                        st.warning("Please describe the issue")
-                            with issue_cols[1]:
-                                if st.button("Cancel", key=f"cancel_issue_{order_id}"):
-                                    st.session_state[f'show_issue_{order_id}'] = False
-                                    st.rerun()
+                                    st.warning("Please describe the issue")
+                        with issue_cols[1]:
+                            if st.button("Cancel", key=f"cancel_issue_{order_id}"):
+                                st.session_state[f'show_issue_{order_id}'] = False
+                                st.rerun()
                 
                 st.markdown("---")
-    else:
-        st.info("No orders found in this category.")
+else:
+    st.info("No orders found in this category.")
 
 # ---- Footer ----
 st.divider()

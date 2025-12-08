@@ -1,17 +1,14 @@
 from flask import Blueprint, jsonify, request
 from backend.db_connection import db
-from mysql.connector import Error
 
-# Blueprint for customer-facing routes
+# Blueprint for driver-facing routes
 driver_routes = Blueprint("driver_routes", __name__)
 
 #List all orders for driver
-#List all order for driver
-
 @driver_routes.route("/driver/<int:driverID>/order", methods=["GET"])
 def get_all_deliveries(driverID):
     try:
-        cursor = db.get_db().cursor(dictionary=True)  # dictionary=True gives dict results
+        cursor = db.get_db().cursor()
         cursor.execute(
             """
             SELECT orderID, orderDate, scheduledTime, deliveryAddress, status, quantityOrdered, DriverID, customerID
@@ -26,11 +23,11 @@ def get_all_deliveries(driverID):
             END, scheduledTime
             """,
             (driverID,),
-            )
+        )
         rows = cursor.fetchall()
         cursor.close()
 
-        # Convert to JSON-serializable format
+        # Convert dict rows to JSON-serializable format (dates need string conversion)
         result = []
         for row in rows:
             result.append({
@@ -46,7 +43,7 @@ def get_all_deliveries(driverID):
 
         return jsonify(result), 200
     
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 
@@ -93,7 +90,7 @@ def update_order_status(driverID, orderID):
 
         return jsonify({"message": "Order status updated successfully"}), 200
 
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
     
 #Log delivery issue 
@@ -129,10 +126,10 @@ def create_issue_report(orderID):
 
         return jsonify({"message": "Issure reported succesfully"}), 201
 
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Conversaation history between driver and admin 
+# Conversation history between driver and admin 
 @driver_routes.route("/driver/<int:driverID>/deliverymessage", methods=["GET"])
 def get_message(driverID):
     try:
@@ -140,21 +137,29 @@ def get_message(driverID):
 
         cursor.execute(
             """
-            SELECT messageID, timestamp, content, driverID
+            SELECT messageID, timestamp, content, DriverID
             FROM DeliveryMessage
-            WHERE driverID = %s
+            WHERE DriverID = %s
+            ORDER BY timestamp ASC
             """,
             (driverID,),
         )
-        message = cursor.fetchall()
+        rows = cursor.fetchall()
         cursor.close()
 
-        if not message:
-            return jsonify({"error": "Message not found"}), 404
+        # Convert to JSON-serializable format
+        result = []
+        for row in rows:
+            result.append({
+                'messageID': row['messageID'],
+                'timestamp': str(row['timestamp']) if row['timestamp'] else None,
+                'content': row['content'],
+                'DriverID': row['DriverID']
+            })
 
-        return jsonify(message), 200
+        return jsonify(result), 200
 
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
     
 #Send message to admin  
@@ -190,7 +195,7 @@ def send_message(driverID):
 
         return jsonify({"message": "Message sent succesfully"}), 201
 
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
     
 # Driver availability
@@ -222,7 +227,7 @@ def get_availability(driverID):
 
         return jsonify(result), 200
     
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 #Update driver availability days (specific entry by availabilityID)
@@ -265,7 +270,7 @@ def update_driver_availability(driverID, availabilityID):
 
         return jsonify({"message": "Availability updated successfully"}), 200
 
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
     
 # Trafic for driver 
@@ -290,7 +295,7 @@ def get_driver_route(driverID):
 
         return jsonify(traffic), 200
 
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
     
 # Post for adding availability to the database
@@ -337,6 +342,6 @@ def create_driver_availability(driverID):
 
         return jsonify({"message": "Availability created successfully", "availabilityID": new_id}), 201
 
-    except Error as e:
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
     
