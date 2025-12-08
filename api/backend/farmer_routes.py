@@ -199,6 +199,33 @@ def get_farmer_inventory(farmerID):
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
+
+# Inventory list for farmer
+@farmer_routes.route("/farmers/<int:farmerID>/inventory/<int:inventoryID>", methods=["DELETE"])
+def delete_farmer_inventory(farmerID, inventoryID):
+    try:
+        cursor = db.get_db().cursor()
+
+        cursor.execute(
+            """
+            SELECT inventoryID, farmerID, produceID, dateUpdate, quantity
+            FROM InventoryEntry
+            WHERE farmerID = %s AND inventoryID = %s 
+            """,
+            (farmerID, inventoryID,),
+        )
+
+        if not cursor.fetchone:
+            return jsonify({"error": "Produce not found"}), 404
+
+        cursor.execute("DELETE FROM Customer WHERE farmerID = %s AND inventoryID = %s ", (farmerID, inventoryID,))
+        db.get_db().commit()
+        cursor.close()
+
+        return jsonify({"message": "Inventory deleted successfully"}), 200
+
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
     
 # Add a new inventory entry
 @farmer_routes.route("/farmers/<int:farmerID>/inventory", methods=["POST"])
