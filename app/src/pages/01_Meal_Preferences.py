@@ -1,18 +1,28 @@
 import logging
 logger = logging.getLogger(__name__)
+
 import pandas as pd
 import streamlit as st
 from streamlit_extras.app_logo import add_logo
-import world_bank_data as wb
-import matplotlib.pyplot as plt
-import numpy as np
-import plotly.express as px
 from modules.nav import SideBarLinks
+from datetime import date
+import requests
 
 st.set_page_config(layout="wide")
 SideBarLinks()
 
-# Style
+API_URL = "http://web-api:4000"
+
+# -------- GET CUSTOMER ID --------
+customer_id = st.session_state.get("customer_id")
+
+if not customer_id:
+    st.error("No customer ID found. Please log in again.")
+    if st.button("Return to Home"):
+        st.switch_page("Home.py")
+    st.stop()
+
+# ----------- STYLE -----------
 st.markdown("""
 <style>
 
@@ -57,16 +67,16 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Header
+# ------------ HEADER ------------
 st.markdown("""
 <div class="page-title">🥗 Meal Preferences</div>
 <div class="subtitle">Update your dietary preferences, delivery schedule, meal quantity, and start date.</div>
 """, unsafe_allow_html=True)
 
-# Dietary Preferences
+
+# ----------- DIETARY PREFS -----------
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
-
     st.markdown("<div class='section-title'>Dietary Preferences</div>", unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
@@ -84,7 +94,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# Delivery Preferences
+# ----------- DELIVERY PREFS -----------
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Delivery Preferences</div>", unsafe_allow_html=True)
@@ -102,7 +112,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# Meals Per Delivery
+# ----------- MEAL QUANTITY -----------
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Amount of Meals Per Delivery</div>", unsafe_allow_html=True)
@@ -112,7 +122,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# Start Date
+# ----------- START DATE -----------
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Select Start Date</div>", unsafe_allow_html=True)
@@ -122,7 +132,7 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 
-# Chat Section
+# ----------- CHAT BOX -----------
 st.markdown("<div class='card'>", unsafe_allow_html=True)
 
 st.markdown("<div class='section-title'>Chat</div>", unsafe_allow_html=True)
@@ -142,7 +152,8 @@ st.text_input("Send a message:", placeholder="Type here...")
 
 st.markdown("</div>", unsafe_allow_html=True)
 
-# Save Preferences
+
+# ----------- SAVE PREFERENCES (API CONNECTED) -----------
 with st.container():
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     st.markdown("<div class='section-title'>Save Your Preferences</div>", unsafe_allow_html=True)
@@ -151,26 +162,44 @@ with st.container():
 
     if st.button("💾 Save Preferences", use_container_width=True):
 
-        # Collect all preferences into a Python dict
-        preferences = {
-            "dietary": {
-                "vegetarian": vegetarian,
-                "vegan": vegan,
-                "gluten_free": gluten_free,
-                "high_protein": high_protein,
-                "dairy_free": dairy_free,
-                "nut_free": nut_free
-            },
-            "delivery_frequency": {
-                "once_week": once_week,
-                "twice_week": twice_week,
-                "every_other_week": every_other,
-                "monthly": monthly
-            },
-            "meals_per_delivery": meals,
-            "start_date": str(start_date)
+        # ---- Convert checkboxes to strings stored in DB ----
+        dietary_list = []
+        if vegetarian: dietary_list.append("Vegetarian")
+        if vegan: dietary_list.append("Vegan")
+        if gluten_free: dietary_list.append("Gluten Free")
+        if high_protein: dietary_list.append("High Protein")
+        if dairy_free: dietary_list.append("Dairy Free")
+        if nut_free: dietary_list.append("Nut Free")
+
+        dietaryPref_str = ", ".join(dietary_list) if dietary_list else "None"
+
+        # Delivery frequency logic → choose ONE priority
+        if once_week: delivery_pref = "Once a week"
+        elif twice_week: delivery_pref = "Twice a week"
+        elif every_other: delivery_pref = "Every other week"
+        elif monthly: delivery_pref = "Monthly"
+        else: delivery_pref = "Unspecified"
+
+        # Nutrition goals: meals per delivery + start date
+        nutritionGoals_str = f"{meals} meals per delivery, starts {start_date}"
+
+        payload = {
+            "dietaryPref": dietaryPref_str,
+            "nutritionGoals": nutritionGoals_str
         }
 
-        st.success("Your preferences have been saved successfully! 🎉")
+        try:
+            response = requests.put(
+                f"{API_URL}/customer/{customer_id}",
+                json=payload
+            )
+
+            if response.status_code == 200:
+                st.success("Your preferences have been saved successfully! 🎉")
+            else:
+                st.error(f"Failed to save preferences: {response.text}")
+
+        except Exception as e:
+            st.error(f"Error connecting to API: {e}")
 
     st.markdown("</div>", unsafe_allow_html=True)
