@@ -5,6 +5,7 @@
 import streamlit as st
 
 
+
 #### ------------------------ General ------------------------
 """Home home page for all. Where you can pick each persona sidebar"""
 def HomeNav():
@@ -95,7 +96,10 @@ def SideBarLinks(show_home=False):
     """
 
     # add a logo to the sidebar always
-    st.sidebar.image("assets/logo.png", width=150)
+    st.sidebar.image("assets/logo.png", width=300
+
+                     
+                     )
 
     # If there is no logged in user, redirect to the Home (Landing) page
     if "authenticated" not in st.session_state:
@@ -144,5 +148,5 @@ def SideBarLinks(show_home=False):
         # Always show a logout button if there is a logged in user
         if st.sidebar.button("Logout"):
             del st.session_state["role"]
-            del st.session_state["authenticated"]
+            del st.session_state["authenticated"]   
             st.switch_page("Home.py")
