@@ -5,10 +5,8 @@ from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide', page_title="Route Planner")
 
-# Initialize sidebar
 SideBarLinks()
 
-# ---- Styling ----
 st.markdown("""
 <style>
 .route-header {
@@ -108,7 +106,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---- Header ----
 st.markdown(f"""
 <div class="route-header">
     <h1>🗺️ Route Planner</h1>
@@ -147,7 +144,6 @@ active_orders = [o for o in orders if o.get('status') in ['out_for_delivery', 'c
 pending_orders = [o for o in orders if o.get('status') == 'pending']
 delivered_today = [o for o in orders if o.get('status') == 'delivered']
 
-# ---- Stats Row ----
 stat_cols = st.columns(4)
 with stat_cols[0]:
     st.markdown(f"""
@@ -183,10 +179,8 @@ with stat_cols[3]:
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ---- Order Management Section ----
 st.subheader("Order Management")
 
-# Filter tabs
 filter_tab = st.radio(
     "Filter orders:",
     ["🚚 Active", "⏳ Pending", "✅ Delivered", "📋 All"],
@@ -194,7 +188,6 @@ filter_tab = st.radio(
     label_visibility="collapsed"
 )
 
-# Filter orders based on selection
 if filter_tab == "Active":
     display_orders = [o for o in orders if o.get('status') in ['out_for_delivery', 'confirmed', 'preparing']]
 elif filter_tab == "Pending":
@@ -212,7 +205,6 @@ if display_orders:
         qty = order.get('quantityOrdered', 0)
         scheduled = order.get('scheduledTime', 'N/A')
         
-        # Status display
         status_labels = {
             'out_for_delivery': 'Out for Delivery',
             'confirmed': '✓ Confirmed',
@@ -241,12 +233,11 @@ if display_orders:
             </div>
             """, unsafe_allow_html=True)
             
-            # Action buttons (only for active orders)
             if status in ['out_for_delivery', 'confirmed', 'preparing', 'pending']:
                 btn_cols = st.columns([1, 1, 1])
                 
                 with btn_cols[0]:
-                    if status != 'out_for_delivery' and st.button("🚚 Start", key=f"start_{order_id}", use_container_width=True):
+                    if status != 'out_for_delivery' and st.button("Start", key=f"start_{order_id}", use_container_width=True):
                         try:
                             response = requests.put(
                                 f"{API_BASE}/order/{order_id}",
@@ -262,7 +253,7 @@ if display_orders:
                             st.error(f"Error: {e}")
                 
                 with btn_cols[1]:
-                    if status == 'out_for_delivery' and st.button("✅ Deliver", key=f"deliver_{order_id}", use_container_width=True):
+                    if status == 'out_for_delivery' and st.button("Deliver", key=f"deliver_{order_id}", use_container_width=True):
                         try:
                             response = requests.put(
                                 f"{API_BASE}/order/{order_id}",
@@ -317,7 +308,6 @@ if display_orders:
 else:
     st.info("No orders found in this category.")
 
-# ---- Footer ----
 st.divider()
 col_back, col_refresh, col_spacer = st.columns([1, 1, 2])
 with col_back:

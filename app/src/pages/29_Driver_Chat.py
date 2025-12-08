@@ -6,7 +6,6 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout="wide", page_title="Driver Chat")
 SideBarLinks()
 
-# ---- Styling ----
 st.markdown("""
 <style>
 .chat-header {
@@ -53,7 +52,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---- Header ----
 st.markdown(f"""
 <div class="chat-header">
     <h1>💬 Driver Chat</h1>
@@ -61,7 +59,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# Get driver ID from session
 driver_id = st.session_state.get('driver_id')
 
 if not driver_id:
@@ -73,7 +70,6 @@ if not driver_id:
 # API Base URL
 API_BASE = f"http://web-api:4000/d/driver/{driver_id}"
 
-# ---- Fetch Messages from Database ----
 @st.cache_data(ttl=10)
 def fetch_messages(driver_id):
     try:
@@ -87,7 +83,6 @@ def fetch_messages(driver_id):
 
 messages = fetch_messages(driver_id)
 
-# ---- Chat Display ----
 st.subheader("Message History")
 
 chat_container = st.container()
@@ -95,7 +90,6 @@ chat_container = st.container()
 with chat_container:
     if messages:
         for msg in messages:
-            # All messages in DeliveryMessage are from drivers to admin
             st.markdown(f"""
             <div style="display: flex; justify-content: flex-end; margin-bottom: 0.5rem;">
                 <div class="chat-message chat-driver">
@@ -109,7 +103,6 @@ with chat_container:
 
 st.markdown("---")
 
-# ---- Send New Message ----
 st.subheader("Send Message to Admin")
 
 with st.form("send_msg_form", clear_on_submit=True):
@@ -139,7 +132,6 @@ with st.form("send_msg_form", clear_on_submit=True):
         except Exception as e:
             st.error(f"Error: {e}")
 
-# ---- Quick Messages ----
 st.markdown("**Quick Messages:**")
 quick_cols = st.columns(3)
 quick_messages = [
@@ -170,7 +162,6 @@ for idx, qmsg in enumerate(quick_messages):
             except Exception as e:
                 st.error(f"Error: {e}")
 
-# ---- Footer ----
 st.divider()
 col_back, col_refresh = st.columns([1, 1])
 with col_back:

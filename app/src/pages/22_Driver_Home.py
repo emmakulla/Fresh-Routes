@@ -6,7 +6,6 @@ from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
 
-# Sidebar
 SideBarLinks()
 
 # ---- Styling ----
@@ -49,7 +48,6 @@ font-weight: 600;
 </style>
 """, unsafe_allow_html=True)
 
-# ---- Hero Section ----
 st.markdown(f"""
 <div class="hero">
 <h1>🚚 Welcome back, {st.session_state['first_name']}!</h1>
@@ -57,7 +55,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ---- Action Cards ----
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -93,7 +90,6 @@ with col3:
     if st.button('Order Management', use_container_width=True):
         st.switch_page('pages/29_Driver_Chat.py')
 
-# ---- Footer ----
 st.divider()
 st.markdown("""
 <div style="text-align:center; color:#666; padding: 1rem;">

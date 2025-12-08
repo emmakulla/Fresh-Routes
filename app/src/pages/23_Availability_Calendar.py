@@ -5,10 +5,8 @@ from modules.nav import SideBarLinks
 
 st.set_page_config(layout='wide')
 
-# Initialize sidebar
 SideBarLinks()
 
-# ---- Styling ----
 st.markdown("""
 <style>
 .calendar-header {
@@ -43,7 +41,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---- Header ----
 st.markdown(f"""
 <div class="calendar-header">
     <h1>Availability Calendar</h1>
@@ -51,7 +48,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# Get driver ID from session
 driver_id = st.session_state.get('driver_id')
 
 if not driver_id:
@@ -60,29 +56,24 @@ if not driver_id:
         st.switch_page("Home.py")
     st.stop()
 
-# API Base URL
+# API URL
 API_BASE = f"http://web-api:4000/d/driver/{driver_id}/driveravailability"
 
-# ---- Fetch existing availability ----
 @st.cache_data(ttl=60)
 def fetch_availability(driver_id):
     try:
-        response = requests.get(f"http://web-api:4000/d/driver/{driver_id}/driveravailability")
+        response = requests.get(f"http://web-api:4000/d/driver/{driver_id}/driveravailability") #existing
         if response.status_code == 200:
             return response.json()
         return []
     except:
         return []
 
-# Get current availability data
 availability_data = fetch_availability(driver_id)
 availability_by_date = {}
 for entry in availability_data:
-    # Handle different date formats
-    # Column order: availibilityID, availStartTime, availEndTime, date, isAvailable, DriverID
     date_val = entry[3] if isinstance(entry, (list, tuple)) else entry.get('date')
     if date_val:
-        # Convert to string if needed
         if hasattr(date_val, 'strftime'):
             date_str = date_val.strftime('%Y-%m-%d')
         else:
@@ -94,13 +85,11 @@ for entry in availability_data:
             'available': entry[4] if isinstance(entry, (list, tuple)) else entry.get('isAvailable')
         }
 
-# ---- Layout: Calendar + Settings ----
 col1, col2 = st.columns([2, 1])
 
 with col1:
     st.subheader("Select Dates")
     
-    # Date selector
     selected_date = st.date_input(
         "Choose a date to view or edit",
         value=datetime.now().date(),
@@ -110,7 +99,6 @@ with col1:
     
     selected_date_str = selected_date.strftime('%Y-%m-%d')
     
-    # Check if this date has existing availability
     existing_entry = availability_by_date.get(selected_date_str)
     
     st.divider()
@@ -120,7 +108,6 @@ with col1:
         is_editing = True
         availability_id = existing_entry['id']
         
-        # Parse existing times
         default_start = datetime.strptime(str(existing_entry['start'])[:8], '%H:%M:%S').time() if existing_entry['start'] else datetime.strptime('09:00:00', '%H:%M:%S').time()
         default_end = datetime.strptime(str(existing_entry['end'])[:8], '%H:%M:%S').time() if existing_entry['end'] else datetime.strptime('17:00:00', '%H:%M:%S').time()
         default_available = bool(existing_entry['available'])
@@ -142,7 +129,6 @@ with col2:
     
     st.write("**Working Hours**")
     
-    # Time inputs
     start_time = st.time_input("Start Time", value=default_start)
     end_time = st.time_input("End Time", value=default_end)
     
@@ -152,14 +138,13 @@ with col2:
     
     st.markdown('</div>', unsafe_allow_html=True)
 
-# ---- Save/Update Button ----
 st.divider()
 
 col_btn1, col_btn2, col_btn3 = st.columns([1, 1, 1])
 
 with col_btn2:
     if is_editing:
-        # UPDATE existing entry
+        # UPDATE
         if st.button("Update Availability", type="primary", use_container_width=True):
             update_data = {
                 "date": selected_date_str,
@@ -183,7 +168,7 @@ with col_btn2:
             except requests.exceptions.RequestException as e:
                 st.error(f"Connection error: {str(e)}")
     else:
-        # CREATE new entry
+        # CREATE
         if st.button("➕ Add Availability", type="primary", use_container_width=True):
             new_data = {
                 "date": selected_date_str,
@@ -208,7 +193,6 @@ with col_btn2:
             except requests.exceptions.RequestException as e:
                 st.error(f"Connection error: {str(e)}")
 
-# ---- Upcoming Availability List ----
 st.divider()
 st.subheader("Your Upcoming Availability")
 
@@ -216,7 +200,6 @@ if availability_data:
     # Sort by date
     sorted_entries = sorted(availability_by_date.items(), key=lambda x: x[0])
     
-    # Filter to future dates
     today_str = datetime.now().strftime('%Y-%m-%d')
     future_entries = [(d, e) for d, e in sorted_entries if d >= today_str]
     
