@@ -311,7 +311,6 @@ def create_driver_availability(driverID):
 
         cursor = db.get_db().cursor()
 
-        # Check if availability already exists for this date and driver
         cursor.execute(
             "SELECT availibilityID FROM DriverAvailability WHERE `date` = %s AND DriverID = %s",
             (data["date"], driverID),
@@ -320,7 +319,6 @@ def create_driver_availability(driverID):
             cursor.close()
             return jsonify({"error": "Availability already exists for this date. Use PUT to update."}), 409
 
-        # Insert new availability (ID auto-generated)
         query = """
             INSERT INTO DriverAvailability (availStartTime, availEndTime, `date`, isAvailable, DriverID)
             VALUES (%s, %s, %s, %s, %s)
