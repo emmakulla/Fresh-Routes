@@ -10,6 +10,7 @@ import plotly.graph_objects as go
 SideBarLinks()
 
 st.title("Ingredient Directory")
+st.subheader("Most Popular Recipes:")
 
 # API endpoint
 API_URL = "http://web-api:4000"
