@@ -31,7 +31,7 @@ def get_next_inventory_id():
 if "inventoryID" not in st.session_state:
     st.session_state.inventoryID = get_next_inventory_id()
 
-st.title("Produce Editor ")
+st.title("Produce Editor 🧺")
 
 col1, spacer, col2,  = st.columns([3,1, 3], vertical_alignment="bottom")
 
