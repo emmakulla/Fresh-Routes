@@ -6,26 +6,30 @@ from mysql.connector import Error
 driver_routes = Blueprint("driver_routes", __name__)
 
 #List all order for driver
+
 @driver_routes.route("/driver/<int:driverID>/order", methods=["GET"])
 def get_all_deliveries(driverID):
     try:
-        cursor = db.get_db().cursor()
-
+        cursor = db.get_db().cursor(dictionary=True)  # dictionary=True gives dict results
         cursor.execute(
             """
-            SELECT orderID, orderDate, scheduledTime, deliveryAddress, status, driverID 
-            FROM `Order` 
-            WHERE driverID = %s
+            SELECT OrderID, status, orderDate, scheduledTime, deliveryAddress, DriverID
+            FROM Orders
+            WHERE DriverID = %s
             """,
             (driverID,),
-            )
+        )
         order_list = cursor.fetchall()
         cursor.close()
 
         return jsonify(order_list), 200
-    
+
     except Error as e:
         return jsonify({"error": str(e)}), 500
+
+
+
+
     
 #Update driver order status 
 @driver_routes.route("/driver/<int:driverID>/order/<int:orderID>", methods=["PUT"])
