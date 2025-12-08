@@ -243,7 +243,7 @@ def delete_customer(customer_id):
         return jsonify({"message": "Customer deleted successfully"}), 200
 
     except Error as e:
-        return jsonify({"error": str(e)}), 500"""
+        return jsonify({"error": str(e)}), 500
 
 """
 @customer_routes.route("/customers/<int:customer_id>", methods=["PUT"])
