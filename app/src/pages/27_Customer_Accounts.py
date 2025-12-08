@@ -3,7 +3,7 @@ import requests
 from modules.nav import SideBarLinks
 from datetime import datetime
 
-API = "http://web-api:4000"  # your API gateway
+API = "http://localhost:4000"  # your API gateway
 
 st.set_page_config(layout="wide")
 SideBarLinks()
