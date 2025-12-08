@@ -11,6 +11,10 @@ import requests
 st.set_page_config(layout="wide")
 SideBarLinks()
 
+if "customer_id" not in st.session_state:
+    show_error("No customer ID found")
+
+
 API_URL = "http://web-api:4000"
 
 # -------- GET CUSTOMER ID --------
