@@ -53,7 +53,6 @@ with col2:
 
             farmers = response.json()
 
-            # Look for the farmer with matching ID
             farmer = next((f for f in farmers if f["farmerID"] == int(farmerID)), None)
 
             if not farmer:
@@ -71,82 +70,71 @@ with col2:
 
 
 if search: 
-    try:
-        response = requests.get(f"{API_URL}/f/farmers/{int(farmerID)}/inventory")
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.subheader("Produce Key:")
 
-        if response.status_code == 200:
-            st.markdown("<hr style='border:1px solid #ccc;'>", unsafe_allow_html=True)
+    with st.popover("Open Produce Key"):
+        st.write("All produce and their IDs:")
+        try:
+            resp = requests.get(f"{API_URL}/f/produce")
+            if resp.status_code == 200:
+                produce_list = resp.json()
+                table_data = [{"Produce": p["name"], "ID": p["produceID"]} for p in produce_list]
+                st.table(table_data)
+            else:
+                st.error("Could not load produce list.")
+        except Exception as e:
+            st.error(f"Error loading produce list: {str(e)}")
 
-        else:
-            st.info("Farmer found but has no inventory yet. Add items below.")
-        
-        st.subheader("Produce Key:")
+    st.subheader("Add Produce to Inventory")
 
-        with st.popover("Open Produce Key"):
-            st.write("List of all produce and their IDs:")
+    with st.form("inventory_add_form"):
+        colA, colB, colC, colD, colE = st.columns([0.5, 1.5, 1, 0.7, 0.7])
 
-            try:
-                response = requests.get(f"{API_URL}/f/produce")
+        inventoryID = colA.text_input("Inventory ID", value=st.session_state.inventoryID, disabled=True)
+        farmerID_input = colB.number_input("Farmer ID", min_value=1, value=int(farmerID))
+        produceID = colC.number_input("Produce ID", min_value=1, step=1)
+        quantity = colD.number_input("Quantity", min_value=1, step=1)
+        unit = colE.selectbox("Unit", ["kg", "lbs", "pieces"])
 
-                if response.status_code == 200:
-                    produce_list = response.json()
+        add_submit = st.form_submit_button("Add Produce")
 
-                    table_data = [
-                        {"Produce Name": item["name"], "Produce ID": item["produceID"]}
-                        for item in produce_list
-                    ]
+    if add_submit:
+        payload = {
+            "inventoryID": int(inventoryID),
+            "produceID": int(produceID),
+            "quantity": int(quantity)
+        }
 
-                    st.table(table_data)
+        try:
+            r = requests.post(f"{API_URL}/f/farmers/{farmerID_input}/inventory", json=payload)
+            if r.status_code == 201:
+                st.success("Produce added successfully!")
+                st.session_state.inventoryID += 1
+                st.rerun()
+            else:
+                st.error(f"Error: {r.json().get('error')}")
+        except Exception as e:
+            st.error(f"API error: {str(e)}")
 
-                else:
-                    st.error("Could not load produce list.")
+    st.markdown("<hr>", unsafe_allow_html=True)
+    st.subheader("Delete Inventory Entry")
 
-            except Exception as e:
-                st.error(f"Error loading produce list: {str(e)}")
+    with st.form("inventory_delete_form"):
+        colX, colY = st.columns([1, 1])
 
+        delete_inventoryID = colX.number_input("Inventory ID to delete", min_value=1, step=1)
+        delete_submit = st.form_submit_button("Delete")
 
-        st.subheader("Insert Produce Information:")
-
-        with st.form("inventory_form"):
-
-                col1, col2, col3, col4, col5 = st.columns([.5, 1.5, 1, .5, .25], vertical_alignment="bottom", width="stretch")
-                farmerID = col2.number_input("Farmer ID", min_value=1, step=1)
-                inventoryID = col1.text_input(
-                    "Inventory",
-                    value=st.session_state.inventoryID,
-                    disabled=True
-                    )
-                produceID = col3.number_input("Produce ID", min_value=1, step=1)
-                quantity = col4.number_input("Quantity", min_value=1, step=1)
-                unit = col5.selectbox( "Unit", ["kg", "lbs", "pieces"], key="produce_unit")
-                submit = st.form_submit_button("Submit")
-
-        if submit:
-                if not all([farmerID, produceID, quantity]):
-                        st.error("Please fill in all required fields.")
-                else:
-                    payload = {
-                        "inventoryID": st.session_state.inventoryID,
-                        "produceID": int(produceID),
-                        "quantity": int(quantity)
-                        }
-
-                    try:
-                        response = requests.post(
-                            f"{API_URL}/f/farmers/{int(farmerID)}/inventory",
-                            json=payload
-                            )
-
-                        if response.status_code == 201:
-                            st.success("Produce added to inventory successfully!")
-                            st.session_state.inventoryID += 1
-                            st.rerun()
-
-                        else:
-                            st.error(f"Error: {response.json().get('error')}")
-
-                    except Exception as e:
-                        st.error(f"Error connecting to API: {str(e)}")
-                
-    except Exception as e:
-        st.error(f"Error connecting to API: {str(e)}")
+    if delete_submit:
+        try:
+            r = requests.delete(f"{API_URL}/f/farmers/{farmerID}/inventory/{delete_inventoryID}")
+            if r.status_code == 200:
+                st.success("Inventory deleted.")
+                st.rerun()
+            elif r.status_code == 404:
+                st.warning("Inventory ID not found.")
+            else:
+                st.error("Delete failed.")
+        except Exception as e:
+            st.error(f"API error: {str(e)}")
