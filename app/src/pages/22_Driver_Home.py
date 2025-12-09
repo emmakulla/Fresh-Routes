@@ -83,11 +83,11 @@ with col3:
     st.markdown("""
     <div class="action-card">
         <div class="action-icon">💬</div>
-        <div class="section-title">Order Management</div>
-        <p>Plan efficient delivery routes.</p>
+        <div class="section-title">Chat with Admin</div>
+        <p>Send inquiries to Admin.</p>
     </div>
     """, unsafe_allow_html=True)
-    if st.button('Order Management', use_container_width=True):
+    if st.button('Admin Chat', use_container_width=True):
         st.switch_page('pages/29_Driver_Chat.py')
 
 st.divider()
