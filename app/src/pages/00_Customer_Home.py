@@ -98,7 +98,7 @@ with col3:
 st.divider()
 st.markdown("""
 <div style="text-align:center; color:#666; padding: 1rem;">
-    🍽️ Making meal planning simple and enjoyable.
+    🍽️ Making meal planning and enjoyable.
 </div>
 """, unsafe_allow_html=True)
 
