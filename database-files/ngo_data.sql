@@ -1,25 +1,19 @@
--- Creating tables and adding all the mock data to them
+Drop database if exists ngo_data;
+CREATE DATABASE IF NOT EXISTS ngo_data;
+USE ngo_data;
 
 Drop database if exists ngo_data;
 CREATE DATABASE IF NOT EXISTS ngo_data;
 USE ngo_data;
 
--- check not nulls for primary keys
--- Creating tables and adding all the mock data to them
-
-Drop database if exists ngo_data;
-CREATE DATABASE IF NOT EXISTS ngo_data;
-USE ngo_data;
-
--- check not nulls for primary keys
 
 CREATE TABLE IF NOT EXISTS Customer(
     customerID INT PRIMARY KEY,
-    firstName VARCHAR(50) NOT NULL, -- think about not null or unique ????????
+    firstName VARCHAR(50) NOT NULL, 
     lastName VARCHAR(50) NOT NULL,
     dietaryPref VARCHAR(500) NOT NULL,
     nutritionGoals VARCHAR(500) NOT NULL,
-    email VARCHAR(50) -- how to handle multivalue
+    email VARCHAR(50) 
 );
 
 INSERT INTO Customer (CustomerID, firstName, lastName, email, dietaryPref, nutritionGoals)
@@ -116,7 +110,6 @@ VALUES
 (29, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '2025-08-01', 36),
 (30, 'Integer a nibh.', '2025-09-10', 18);
 
--- Driver
 CREATE TABLE IF NOT EXISTS Driver(
     DriverID INT PRIMARY KEY,
     name varchar(100) NOT NULL
@@ -196,7 +189,6 @@ VALUES
 (10, 9, '2025-01-27', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
 
 
--- Delivery Message
 CREATE TABLE IF NOT EXISTS DeliveryMessage(
     messageID INT PRIMARY KEY,
     `timestamp` DATE NOT NULL,
@@ -238,11 +230,10 @@ VALUES
 (29, 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', '2025-06-02', 1),
 (30, 'In congue.', '2025-01-22', 5);
 
--- DriverAvailibilty
 CREATE TABLE IF NOT EXISTS DriverAvailability(
     availibilityID INT PRIMARY KEY,
-    availStartTime TIME NOT NULL, -- change the diagram, came from timeWindow
-    availEndTime TIME NOT NULL, -- change the diagram, came from timeWindow
+    availStartTime TIME NOT NULL, 
+    availEndTime TIME NOT NULL, 
     `date` DATE NOT NULL,
     isAvailable BOOLEAN,
     DriverID INT NOT NULL,
@@ -292,7 +283,6 @@ VALUES
 (39, '18:03:00', '10:54:00', '2025-11-18', false, 1),
 (40, '22:08:00', '07:03:00', '2025-04-02', true, 3);
 
--- meal plan
 CREATE TABLE IF NOT EXISTS mealPlan(
     mealPlanId INT PRIMARY KEY,
     startDate DATE NOT NULL,
@@ -370,8 +360,6 @@ VALUES
 (14, 'sed justo pellentesque', '2024-12-20', 388, 'pieces'),
 (15, 'nam ultrices libero', '2025-11-30', 241, 'kg');
 
-
--- CREATE TABLE IF NOT EXISTS OrderProduce( / can delete ?
 CREATE TABLE IF NOT EXISTS OrderProduce (
     orderID INT NOT NULL,
     produceID INT NOT NULL,
@@ -451,7 +439,6 @@ VALUES
 (9, 4, 'Monday', 'Lunch'),
 (10, 5, 'Sunday', 'Lunch');
 
--- Recipe Produce
 CREATE TABLE IF NOT EXISTS RecipeProduce(
     recipeID INT NOT NULL,
     produceID INT NOT NULL,
@@ -500,7 +487,6 @@ VALUES
 (12, 1),
 (14, 8);
 
--- produce --> demand
 CREATE TABLE IF NOT EXISTS Demand(
     produceID INT NOT NULL,
     forcastID INT NOT NULL,
@@ -542,8 +528,6 @@ VALUES
 (7, 'Garvin Duffy', 'approved', 'gd@gmail.com', 'business'),
 (8, 'Nana Pallesen', 'suspended', 'np@gmail.com', 'personal');
 
-
--- produce -> inventory entry
 CREATE TABLE IF NOT EXISTS InventoryEntry(
     inventoryID INT PRIMARY KEY,
     farmerID INT NOT NULL,
@@ -587,7 +571,6 @@ VALUES
 (29, 4, 4, '2025-04-19', 175),
 (30, 3, 4, '2025-11-05', 206);
 
--- weekly Menu
 CREATE TABLE IF NOT EXISTS weeklyMenu(
     menuID INT NOT NULL PRIMARY KEY,
     weekNumber INT NOT NULL
@@ -626,7 +609,6 @@ VALUES
 (29, 29),
 (30, 30);
 
--- Recipe weekly menu
 CREATE TABLE IF NOT EXISTS Recipe_WeeklyMenu(
     menuID INT NOT NULL,
     recipeID INT NOT NULL,
@@ -666,8 +648,6 @@ VALUES
 (29,11),
 (30,2);
 
-
--- ingredient
 CREATE TABLE IF NOT EXISTS Ingredient(
     ingredientID INT PRIMARY KEY,
     name varchar(100) Not Null,
@@ -711,7 +691,6 @@ VALUES
 (29, 'vulputate luctus cum', 'Small', 2, 175, 10),
 (30, 'lorem vitae mattis', 'Large', 1, 97, 15);
 
--- CREATE TABLE IF NOT EXISTS OrderIngredient
 CREATE TABLE IF NOT EXISTS OrderIngredient (
     orderID INT NOT NULL,
     ingredientID INT NOT NULL,
@@ -818,11 +797,11 @@ VALUES
 (10
 CREATE TABLE IF NOT EXISTS Customer(
     customerID INT PRIMARY KEY,
-    firstName VARCHAR(50) NOT NULL, -- think about not null or unique ????????
+    firstName VARCHAR(50) NOT NULL,
     lastName VARCHAR(50) NOT NULL,
     dietaryPref VARCHAR(500) NOT NULL,
     nutritionGoals VARCHAR(500) NOT NULL,
-    email VARCHAR(50) -- how to handle multivalue
+    email VARCHAR(50) 
 );
 
 INSERT INTO Customer (CustomerID, firstName, lastName, email, dietaryPref, nutritionGoals)
@@ -919,7 +898,6 @@ VALUES
 (29, 'Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.', '2025-08-01', 36),
 (30, 'Integer a nibh.', '2025-09-10', 18);
 
--- Driver
 CREATE TABLE IF NOT EXISTS Driver(
     DriverID INT PRIMARY KEY,
     name varchar(100) NOT NULL
@@ -997,8 +975,6 @@ VALUES
 (9, 20, '2025-10-01', 'In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Mauris viverra diam vitae quam.'),
 (10, 9, '2025-01-27', 'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.');
 
-
--- Delivery Message
 CREATE TABLE IF NOT EXISTS DeliveryMessage(
     messageID INT PRIMARY KEY,
     `timestamp` DATE NOT NULL,
@@ -1040,11 +1016,10 @@ VALUES
 (29, 'Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.', '2025-06-02', 1),
 (30, 'In congue.', '2025-01-22', 5);
  
--- DriverAvailibilty
 CREATE TABLE IF NOT EXISTS DriverAvailability(
     availibilityID INT AUTO_INCREMENT PRIMARY KEY,
-    availStartTime TIME NOT NULL, -- change the diagram, came from timeWindow
-    availEndTime TIME NOT NULL, -- change the diagram, came from timeWindow
+    availStartTime TIME NOT NULL, 
+    availEndTime TIME NOT NULL, 
     `date` DATE NOT NULL,
     isAvailable BOOLEAN,
     DriverID INT NOT NULL,
@@ -1094,7 +1069,6 @@ VALUES
 (39, '18:03:00', '10:54:00', '2025-11-18', false, 1),
 (40, '22:08:00', '07:03:00', '2025-04-02', true, 3);
 
--- meal plan
 CREATE TABLE IF NOT EXISTS mealPlan(
     mealPlanId INT PRIMARY KEY,
     startDate DATE NOT NULL,
@@ -1173,7 +1147,6 @@ VALUES
 (15, 'nam ultrices libero', '2025-11-30', 241, 'kg');
 
 
--- CREATE TABLE IF NOT EXISTS OrderProduce( / can delete ?
 CREATE TABLE IF NOT EXISTS OrderProduce (
     orderID INT NOT NULL,
     produceID INT NOT NULL,
@@ -1253,7 +1226,6 @@ VALUES
 (9, 4, 'Monday', 'Lunch'),
 (10, 5, 'Sunday', 'Lunch');
 
--- Recipe Produce
 CREATE TABLE IF NOT EXISTS RecipeProduce(
     recipeID INT NOT NULL,
     produceID INT NOT NULL,
@@ -1302,7 +1274,6 @@ VALUES
 (12, 1),
 (14, 8);
 
--- produce --> demand
 CREATE TABLE IF NOT EXISTS Demand(
     produceID INT NOT NULL,
     forcastID INT NOT NULL,
@@ -1348,7 +1319,6 @@ VALUES
 (8, 'Nana Pallesen', 'suspended', 'np@gmail.com', 'personal');
 
 
--- produce -> inventory entry
 CREATE TABLE IF NOT EXISTS InventoryEntry(
     inventoryID INT PRIMARY KEY,
     farmerID INT NOT NULL,
@@ -1392,7 +1362,6 @@ VALUES
 (29, 4, 4, '2025-04-19', 175),
 (30, 3, 4, '2025-11-05', 206);
 
--- weekly Menu
 CREATE TABLE IF NOT EXISTS weeklyMenu(
     menuID INT NOT NULL PRIMARY KEY,
     weekNumber INT NOT NULL
@@ -1431,7 +1400,6 @@ VALUES
 (29, 29),
 (30, 30);
 
--- Recipe weekly menu
 CREATE TABLE IF NOT EXISTS Recipe_WeeklyMenu(
     menuID INT NOT NULL,
     recipeID INT NOT NULL,
@@ -1471,8 +1439,6 @@ VALUES
 (29,11),
 (30,2);
 
-
--- ingredient
 CREATE TABLE IF NOT EXISTS Ingredient(
     ingredientID INT PRIMARY KEY,
     name varchar(100) Not Null,
@@ -1516,7 +1482,6 @@ VALUES
 (29, 'Zucchini', 'Small', 2, 175, 10),
 (30, 'Beetroot', 'Large', 1, 97, 15);
 
--- CREATE TABLE IF NOT EXISTS OrderIngredient
 CREATE TABLE IF NOT EXISTS OrderIngredient (
     orderID INT NOT NULL,
     ingredientID INT NOT NULL,

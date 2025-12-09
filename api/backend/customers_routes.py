@@ -286,17 +286,12 @@ def update_customer(customer_id):
         return jsonify({"error": str(e)}), 500
 """
 
-"""
 @customer_routes.route("/customers/<int:customer_id>/messages", methods=["GET"])
 def get_customer_messages(customer_id):
     try:
         cursor = db.get_db().cursor()
 
-        query = 
-            SELECT messageID, content, timestamp, customerID
-            FROM CustomerMessage
-            WHERE customerID = %s
-            ORDER BY timestamp DESC
+        query = 'SELECT messageID, content, timestamp, customerID FROM CustomerMessage WHERE customerID = %s ORDER BY timestamp DESC'
 
         cursor.execute(query, (customer_id,))
         messages = cursor.fetchall()
@@ -306,7 +301,7 @@ def get_customer_messages(customer_id):
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
-"""
+
 
 """
 @customer_routes.route("/customers/<int:customer_id>/messages", methods=["POST"])
