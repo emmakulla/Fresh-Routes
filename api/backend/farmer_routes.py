@@ -43,7 +43,7 @@ def create_produce():
         return jsonify({"error": str(e)}), 500
 
 
-#List all produce
+# List all available produce
 @farmer_routes.route("/produce", methods=["GET"])
 def get_all_produce():
     try:
@@ -61,6 +61,7 @@ def get_all_produce():
     except Error as e:
         return jsonify({"error": str(e)}), 500
 
+# Return all available ingredients
 @farmer_routes.route("/ingredient", methods=["GET"])
 def get_all_ingredient():
     try:
@@ -78,7 +79,6 @@ def get_all_ingredient():
     except Error as e:
         return jsonify({"error": str(e)}), 500
     
-
 # Return produce details
 @farmer_routes.route("/produce/<int:produceID>", methods=["GET"])
 def get_produce(produceID):
@@ -100,6 +100,49 @@ def get_produce(produceID):
             return jsonify({"error": "Produce not found"}), 404
 
         return jsonify(produce), 200
+
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
+
+# Update produce availability and attributes
+@farmer_routes.route("/produce/<int:produceID>", methods=["PUT"])
+def update_produce(produceID):
+    try:
+        data = request.get_json()
+
+        # Fields farmers are allowed to update
+        allowed_fields = ["name", "expectedHarvestDate", "quantityAvailable", "unit"]
+        update_fields = []
+        params = []
+
+        for field in allowed_fields:
+            if field in data:
+                update_fields.append(f"{field} = %s")
+                params.append(data[field])
+
+        if not update_fields:
+            return jsonify({"error": "No valid fields to update"}), 400
+
+        cursor = db.get_db().cursor()
+
+        # Check if produce exists
+        cursor.execute(
+            "SELECT produceID FROM Produce WHERE produceID = %s",
+            (produceID,),
+        )
+        if not cursor.fetchone():
+            cursor.close()
+            return jsonify({"error": "Produce not found"}), 404
+
+        # Build & execute update query
+        params.append(produceID)
+        query = f"UPDATE Produce SET {', '.join(update_fields)} WHERE produceID = %s"
+        cursor.execute(query, params)
+
+        db.get_db().commit()
+        cursor.close()
+
+        return jsonify({"message": "Produce updated successfully"}), 200
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
@@ -189,7 +232,7 @@ def add_new_inventory_entry(farmerID):
     except Error as e:
         return jsonify({"error": str(e)}), 500
 
-# Add a new inventory entry
+# Update inventory entry
 @farmer_routes.route("/farmers/<int:farmerID>/Inventory/<int:inventoryID>", methods=["PUT"])
 def update_farmer_inventory(farmerID, inventoryID):
     try:
@@ -284,17 +327,8 @@ def get_inventory():
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
-    
-@farmer_routes.route("/debug-test")
-def debug_test():
-    try:
-        cursor = db.get_db().cursor()
-        cursor.execute("SELECT COUNT(*) AS n FROM Recipe;")
-        result = cursor.fetchone()
-        return {"recipe_count": result["n"]}, 200
-    except Exception as e:
-        return {"error": str(e)}, 500
-    
+
+# Return live inventory for the farmers
 @farmer_routes.route("/inventory", methods=["GET"])
 def get_all_inventory():
     try:
@@ -307,3 +341,13 @@ def get_all_inventory():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+@farmer_routes.route("/debug-test")
+def debug_test():
+    try:
+        cursor = db.get_db().cursor()
+        cursor.execute("SELECT COUNT(*) AS n FROM Recipe;")
+        result = cursor.fetchone()
+        return {"recipe_count": result["n"]}, 200
+    except Exception as e:
+        return {"error": str(e)}, 500
