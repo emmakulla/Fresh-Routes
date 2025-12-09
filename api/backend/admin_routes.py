@@ -92,7 +92,7 @@ def create_recipe():
     try:
         data = request.get_json()
 
-        required_fields = ["recipeID", "name", "description", "nutritionInfo", "popularityScore", "isActive", "suitableFor", "cuisineType"]
+        required_fields = ["recipeID", "name", "description", "nutritionInfo", "popularityScore", "isActive", "suitibleFor", "cuisineType"]
         for field in required_fields:
             if field not in data:
                 return jsonify({"error": f"Missing required field: {field}"}), 400
@@ -100,7 +100,7 @@ def create_recipe():
         cursor = db.get_db().cursor()
 
         query = """
-            INSERT INTO Recipe (recipeID, name, description, nutritionInfo, popularityScore, isActive, suitableFor, cuisineType)
+            INSERT INTO Recipe (recipeID, name, description, nutritionInfo, popularityScore, isActive, suitibleFor, cuisineType)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """
 
@@ -113,7 +113,7 @@ def create_recipe():
                 data['nutritionInfo'],
                 data['popularityScore'], 
                 data['isActive'], 
-                data['suitableFor'], 
+                data['suitibleFor'], 
                 data['cuisineType']
             ),
             )
@@ -122,53 +122,6 @@ def create_recipe():
         cursor.close()
 
         return jsonify({"message": "Recipe created succesfully"}), 201
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-    
-#Update recipe
-@admin_routes.route("/recipe/<int:recipeID>", methods=["PUT"])
-def update_recipe(recipeID):
-    try:
-        data = request.get_json()
-
-        allowed_fields = ["recipeID", "name", "description", "nutritionInfo", "popularityScore", "isActive", "suitableFor", "cuisineType"]
-        update_fields = []
-        params = []
-        
-        for field in allowed_fields:
-            if field in data:
-                update_fields.append(f"{field} = %s")
-                params.append(data[field])
-
-        if not update_fields:
-            return jsonify({"error": "No valid fields to update"}), 400
-
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            """
-            SELECT recipeID 
-            FROM Recipe 
-            WHERE recipeID = %s
-            """,
-            (recipeID,),
-        )
-        if not cursor.fetchall():
-            cursor.close()
-            return jsonify({"error": "Recipe entry not found"}), 404
-
-        # executes function 
-        params.append(recipeID)
-        query = f"UPDATE Recipe SET {', '.join(update_fields)} WHERE recipeID = %s"
-        cursor.execute(query, params)
-        db.get_db().commit()
-        cursor.close()
-
-        return jsonify({"message": "Recipe updated successfully"}), 200
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
@@ -194,6 +147,139 @@ def delete_recipe(recipeID):
         return jsonify({"message": "Recipe deleted successfully"}), 200
 
     except Error as e:
+        return jsonify({"error": str(e)}), 500
+
+# Get all recipes
+@admin_routes.route("/recipes", methods=["GET"])
+def get_all_recipes():
+    try:
+        cursor = db.get_db().cursor()
+        cursor.execute(
+            """
+            SELECT recipeID, name, description, nutritionInfo, popularityScore, isActive, suitibleFor, cuisineType
+            FROM Recipe
+            ORDER BY name
+            """
+        )
+        rows = cursor.fetchall()
+        cursor.close()
+
+        result = []
+        for row in rows:
+            result.append({
+                'recipeID': row['recipeID'],
+                'name': row['name'],
+                'description': row['description'],
+                'nutritionInfo': row['nutritionInfo'],
+                'popularityScore': row['popularityScore'],
+                'isActive': bool(row['isActive']),
+                'suitableFor': row['suitibleFor'],
+                'cuisineType': row['cuisineType']
+            })
+
+        return jsonify(result), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Get recipes for a specific weekly menu
+@admin_routes.route("/weeklymenu/<int:menuID>/recipes", methods=["GET"])
+def get_menu_recipes(menuID):
+    try:
+        cursor = db.get_db().cursor()
+        cursor.execute(
+            """
+            SELECT r.recipeID, r.name, r.description, r.cuisineType, r.popularityScore, r.isActive
+            FROM Recipe r
+            JOIN Recipe_WeeklyMenu rwm ON r.recipeID = rwm.recipeID
+            WHERE rwm.menuID = %s
+            ORDER BY r.name
+            """,
+            (menuID,)
+        )
+        rows = cursor.fetchall()
+        cursor.close()
+
+        result = []
+        for row in rows:
+            result.append({
+                'recipeID': row['recipeID'],
+                'name': row['name'],
+                'description': row['description'],
+                'cuisineType': row['cuisineType'],
+                'popularityScore': row['popularityScore'],
+                'isActive': bool(row['isActive'])
+            })
+
+        return jsonify(result), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Add recipe to weekly menu
+@admin_routes.route("/weeklymenu/<int:menuID>/recipe/<int:recipeID>", methods=["POST"])
+def add_recipe_to_menu(menuID, recipeID):
+    try:
+        cursor = db.get_db().cursor()
+
+        # Check if menu exists
+        cursor.execute("SELECT menuID FROM weeklyMenu WHERE menuID = %s", (menuID,))
+        if not cursor.fetchone():
+            cursor.close()
+            return jsonify({"error": "Menu not found"}), 404
+
+        # Check if recipe exists
+        cursor.execute("SELECT recipeID FROM Recipe WHERE recipeID = %s", (recipeID,))
+        if not cursor.fetchone():
+            cursor.close()
+            return jsonify({"error": "Recipe not found"}), 404
+
+        # Check if already in menu
+        cursor.execute(
+            "SELECT * FROM Recipe_WeeklyMenu WHERE menuID = %s AND recipeID = %s",
+            (menuID, recipeID)
+        )
+        if cursor.fetchone():
+            cursor.close()
+            return jsonify({"error": "Recipe already in this menu"}), 409
+
+        # Add recipe to menu
+        cursor.execute(
+            "INSERT INTO Recipe_WeeklyMenu (menuID, recipeID) VALUES (%s, %s)",
+            (menuID, recipeID)
+        )
+        db.get_db().commit()
+        cursor.close()
+
+        return jsonify({"message": "Recipe added to menu successfully"}), 201
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Remove recipe from weekly menu
+@admin_routes.route("/weeklymenu/<int:menuID>/recipe/<int:recipeID>", methods=["DELETE"])
+def remove_recipe_from_menu(menuID, recipeID):
+    try:
+        cursor = db.get_db().cursor()
+
+        cursor.execute(
+            "SELECT * FROM Recipe_WeeklyMenu WHERE menuID = %s AND recipeID = %s",
+            (menuID, recipeID)
+        )
+        if not cursor.fetchone():
+            cursor.close()
+            return jsonify({"error": "Recipe not in this menu"}), 404
+
+        cursor.execute(
+            "DELETE FROM Recipe_WeeklyMenu WHERE menuID = %s AND recipeID = %s",
+            (menuID, recipeID)
+        )
+        db.get_db().commit()
+        cursor.close()
+
+        return jsonify({"message": "Recipe removed from menu successfully"}), 200
+
+    except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 # return list of farmers
@@ -272,7 +358,7 @@ def get_weekly_menu():
         cursor.execute(
             """
             SELECT *
-            FROM WeeklyMenu; 
+            FROM weeklyMenu; 
             """,
             )
         order_list = cursor.fetchall()
@@ -297,7 +383,7 @@ def create_weekly_menu():
         cursor = db.get_db().cursor()
 
         query = """
-            INSERT INTO WeeklyMenu (menuID, weekNumber)
+            INSERT INTO weeklyMenu (menuID, weekNumber)
             VALUES (%s, %s)
         """
 
@@ -368,7 +454,7 @@ def update_weekly_menu(menuID):
 @admin_routes.route("/admin/customers", methods=["GET"])
 def get_all_customers():
     try:
-        cursor = db.get_db().cursor(dictionary=True)
+        cursor = db.get_db().cursor()
 
         cursor.execute("""
             SELECT customerID, firstName, lastName, email
