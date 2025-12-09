@@ -7,6 +7,9 @@ from sklearn.ensemble import RandomForestClassifier
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
+
+API_URL = "http://web-api:4000"
+
 SideBarLinks()
 
 st.write("""
@@ -46,7 +49,7 @@ ingredient_data = {
 
 df_ingredients = pd.DataFrame(ingredient_data)  
 
-editable_ingredients = st.data_editor(df, num_rows="dynamic")
+editable_ingredients = st.data_editor(df_ingredients, num_rows="dynamic")
 
 #Save button
 if save: 
