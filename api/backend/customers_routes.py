@@ -221,29 +221,6 @@ def create_order():
     except Error as e:
         return jsonify({"error": str(e)}), 500
 
-    
-@customer_routes.route("/customers/<int:customer_id>", methods=["DELETE"])
-def delete_customer(customer_id):
-    try:
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            "SELECT customerID FROM Customer WHERE customerID = %s",
-            (customer_id,),
-        )
-        if not cursor.fetchone():
-            cursor.close()
-            return jsonify({"error": "Customer not found"}), 404
-
-        cursor.execute("DELETE FROM Customer WHERE customerID = %s", (customer_id,))
-        db.get_db().commit()
-        cursor.close()
-
-        return jsonify({"message": "Customer deleted successfully"}), 200
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-
 """
 @customer_routes.route("/customers/<int:customer_id>", methods=["PUT"])
 def update_customer(customer_id):

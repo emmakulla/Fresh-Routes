@@ -4,7 +4,7 @@ from backend.db_connection import db
 # Blueprint for driver-facing routes
 driver_routes = Blueprint("driver_routes", __name__)
 
-#List all orders for driver
+# Return all scheduled deliveries for driver
 @driver_routes.route("/driver/<int:driverID>/order", methods=["GET"])
 def get_all_deliveries(driverID):
     try:
@@ -46,10 +46,6 @@ def get_all_deliveries(driverID):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
-
-
-    
 #Update driver order status 
 @driver_routes.route("/driver/<int:driverID>/order/<int:orderID>", methods=["PUT"])
 def update_order_status(driverID, orderID):
