@@ -7,7 +7,6 @@ st.set_page_config(layout="wide", page_title="Recipe Creator")
 
 SideBarLinks()
 
-# ---- Styling ----
 st.markdown("""
 <style>
 .recipe-header {
@@ -87,7 +86,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ---- Header ----
 st.markdown("""
 <div class="recipe-header">
     <h1>📖 Recipe Creator & Menu Manager</h1>
@@ -97,7 +95,6 @@ st.markdown("""
 
 API_BASE = "http://web-api:4000/a"
 
-# ---- Fetch Data Functions ----
 @st.cache_data(ttl=30)
 def fetch_recipes():
     try:
@@ -133,7 +130,6 @@ def fetch_menu_recipes(menu_id):
 recipes = fetch_recipes()
 menus = fetch_weekly_menus()
 
-# ---- Stats Row ----
 active_recipes = [r for r in recipes if r.get('isActive')]
 inactive_recipes = [r for r in recipes if not r.get('isActive')]
 
@@ -141,7 +137,7 @@ stat_cols = st.columns(4)
 with stat_cols[0]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #28a745;">📗 {len(active_recipes)}</div>
+        <div class="stats-number" style="color: #28a745;">{len(active_recipes)}</div>
         <div class="stats-label">Active Recipes</div>
     </div>
     """, unsafe_allow_html=True)
@@ -149,7 +145,7 @@ with stat_cols[0]:
 with stat_cols[1]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #dc3545;">📕 {len(inactive_recipes)}</div>
+        <div class="stats-number" style="color: #dc3545;">{len(inactive_recipes)}</div>
         <div class="stats-label">Inactive Recipes</div>
     </div>
     """, unsafe_allow_html=True)
@@ -157,7 +153,7 @@ with stat_cols[1]:
 with stat_cols[2]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #007bff;">📅 {len(menus)}</div>
+        <div class="stats-number" style="color: #007bff;">{len(menus)}</div>
         <div class="stats-label">Weekly Menus</div>
     </div>
     """, unsafe_allow_html=True)
@@ -165,21 +161,17 @@ with stat_cols[2]:
 with stat_cols[3]:
     st.markdown(f"""
     <div class="stats-card">
-        <div class="stats-number" style="color: #6c757d;">📊 {len(recipes)}</div>
+        <div class="stats-number" style="color: #6c757d;">{len(recipes)}</div>
         <div class="stats-label">Total Recipes</div>
     </div>
     """, unsafe_allow_html=True)
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-# ---- Tabs ----
 tab_recipes, tab_create, tab_menus = st.tabs(["📋 Manage Recipes", "➕ Create Recipe", "📅 Weekly Menus"])
 
-# ===============================
-# TAB 1: MANAGE RECIPES
-# ===============================
 with tab_recipes:
-    st.subheader("📋 All Recipes")
+    st.subheader("All Recipes")
     
     # Filters
     filter_cols = st.columns([2, 2, 2])
@@ -241,14 +233,12 @@ with tab_recipes:
                 </div>
                 """, unsafe_allow_html=True)
                 
-                # Action button
                 btn_cols = st.columns([1, 5])
                 
                 with btn_cols[0]:
                     if st.button("🗑️ Delete", key=f"delete_{recipe_id}", use_container_width=True):
                         st.session_state[f'confirm_delete_{recipe_id}'] = True
                 
-                # Delete confirmation
                 if st.session_state.get(f'confirm_delete_{recipe_id}', False):
                     st.warning(f"Are you sure you want to delete '{name}'?")
                     confirm_cols = st.columns(2)
@@ -274,11 +264,9 @@ with tab_recipes:
     else:
         st.info("No recipes found matching your filters.")
 
-# ===============================
-# TAB 2: CREATE RECIPE
-# ===============================
+
 with tab_create:
-    st.subheader("➕ Create New Recipe")
+    st.subheader("Create New Recipe")
     
     with st.form("create_recipe_form"):
         col1, col2 = st.columns(2)
@@ -301,7 +289,6 @@ with tab_create:
                 st.error("Please fill in all required fields (marked with *)")
             else:
                 try:
-                    # Generate new recipe ID
                     max_id = max([r.get('recipeID', 0) for r in recipes]) if recipes else 0
                     new_id = max_id + 1
                     
@@ -328,14 +315,11 @@ with tab_create:
                 except Exception as e:
                     st.error(f"Error: {e}")
 
-# ===============================
-# TAB 3: WEEKLY MENUS
-# ===============================
+
 with tab_menus:
-    st.subheader("📅 Weekly Menu Management")
+    st.subheader("Weekly Menu Management")
     st.markdown("Design weekly menus using seasonal ingredients to promote freshness and variety.")
     
-    # Select week
     current_week = datetime.now().isocalendar()[1]
     week_options = {f"Week {m.get('weekNumber', m.get('menuID', 0))}": m.get('menuID', m.get('weekNumber', 0)) for m in menus}
     
@@ -347,13 +331,11 @@ with tab_menus:
         )
         selected_menu_id = week_options[selected_week_label]
         
-        # Get recipes for this menu
         menu_recipes = fetch_menu_recipes(selected_menu_id)
         
         st.markdown(f"### {selected_week_label} Menu")
         st.markdown(f"**{len(menu_recipes)} recipes** in this menu")
         
-        # Display current menu recipes
         if menu_recipes:
             st.markdown("#### Current Recipes in Menu")
             for mr in menu_recipes:
@@ -372,7 +354,7 @@ with tab_menus:
                     </div>
                     """, unsafe_allow_html=True)
                 with col2:
-                    if st.button("🗑️ Remove", key=f"remove_{selected_menu_id}_{mr.get('recipeID')}"):
+                    if st.button("Remove", key=f"remove_{selected_menu_id}_{mr.get('recipeID')}"):
                         try:
                             response = requests.delete(
                                 f"{API_BASE}/weeklymenu/{selected_menu_id}/recipe/{mr.get('recipeID')}"
@@ -433,14 +415,13 @@ with tab_menus:
     else:
         st.warning("No weekly menus found. Create one first.")
 
-# ---- Footer ----
 st.divider()
 col_back, col_refresh = st.columns([1, 1])
 with col_back:
     if st.button("← Back to Admin Home"):
         st.switch_page("pages/25_Admin_Home.py")
 with col_refresh:
-    if st.button("🔄 Refresh Data"):
+    if st.button("Refresh Data"):
         st.cache_data.clear()
         st.rerun()
 

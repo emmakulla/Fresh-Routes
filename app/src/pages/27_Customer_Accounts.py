@@ -8,7 +8,6 @@ API_BASE = "http://web-api:4000/a"
 st.set_page_config(layout="wide", page_title="Customer Accounts")
 SideBarLinks()
 
-# ----------------- PAGE STYLE -----------------
 st.markdown("""
 <style>
 .page-header {
@@ -98,16 +97,14 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ----------------- HEADER -----------------
 st.markdown("""
 <div class="page-header">
-    <h1>👥 Customer Accounts & Feedback</h1>
+    <h1>Customer Accounts & Feedback</h1>
     <p>View active customer accounts, read their messages, and respond directly</p>
 </div>
 """, unsafe_allow_html=True)
 
 
-# ----------------- FETCH FUNCTIONS -----------------
 @st.cache_data(ttl=30)
 def load_customers():
     """Fetch all customers from API"""
@@ -158,10 +155,8 @@ def delete_customer(customer_id):
         return False
 
 
-# ----------------- LOAD DATA -----------------
 customers = load_customers()
 
-# ----------------- STATS ROW -----------------
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -173,7 +168,6 @@ with col1:
     """, unsafe_allow_html=True)
 
 with col2:
-    # Count customers with messages
     customers_with_messages = 0
     for c in customers:
         msgs = load_customer_messages(c.get('customerID'))
@@ -196,14 +190,12 @@ with col3:
 
 st.markdown("---")
 
-# ----------------- SEARCH/FILTER -----------------
 search_col, filter_col = st.columns([3, 1])
 with search_col:
     search_term = st.text_input("🔍 Search customers by name or email", placeholder="Type to search...")
 with filter_col:
     show_with_messages = st.checkbox("Only show customers with messages", value=False)
 
-# Filter customers
 filtered_customers = customers
 if search_term:
     search_lower = search_term.lower()
@@ -216,7 +208,6 @@ if search_term:
 
 st.markdown(f"**Showing {len(filtered_customers)} customers**")
 
-# ----------------- DISPLAY CUSTOMERS -----------------
 if not filtered_customers:
     st.info("No customers found.")
 else:
@@ -227,14 +218,11 @@ else:
         full_name = f"{first_name} {last_name}".strip()
         email = cust.get('email', 'No email')
         
-        # Get customer's messages
         messages = load_customer_messages(cust_id)
         
-        # Skip if filtering for messages only
         if show_with_messages and not messages:
             continue
         
-        # Customer card container
         with st.container():
             st.markdown(f"""
             <div class="customer-card">
@@ -243,14 +231,11 @@ else:
             </div>
             """, unsafe_allow_html=True)
             
-            # Two columns: Messages on left, Actions on right
             msg_col, action_col = st.columns([3, 1])
             
             with msg_col:
-                # Display latest messages (up to 3)
                 if messages:
                     st.markdown("**Recent Messages:**")
-                    # Sort by timestamp if available, show latest first
                     sorted_msgs = sorted(
                         messages, 
                         key=lambda x: x.get('timestamp', ''), 
@@ -275,7 +260,6 @@ else:
             with action_col:
                 st.markdown("**Actions:**")
                 
-                # Reply button - opens expander
                 with st.expander("💬 Reply"):
                     reply_msg = st.text_area(
                         "Your message",
@@ -294,7 +278,6 @@ else:
                         else:
                             st.warning("Please enter a message")
                 
-                # Delete button with confirmation
                 if st.button("🗑️ Delete Account", key=f"delete_{cust_id}", use_container_width=True):
                     st.session_state[f'confirm_delete_{cust_id}'] = True
                 
