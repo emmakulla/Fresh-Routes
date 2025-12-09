@@ -6,41 +6,6 @@ from flask import current_app
 # Blueprint for customer-facing routes
 farmer_routes = Blueprint("farmer_routes", __name__)
 
-#List all produce
-@farmer_routes.route("/produce", methods=["GET"])
-def get_all_produce():
-    try:
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            "SELECT produceID, name, expectedHarvestDate, quantityAvailable, unit " \
-            "FROM Produce"
-            )
-        produce_list = cursor.fetchall()
-        cursor.close()
-
-        return jsonify(produce_list), 200
-    
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-
-@farmer_routes.route("/ingredient", methods=["GET"])
-def get_all_ingredient():
-    try:
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            "SELECT * " \
-            "FROM Ingredient"
-            )
-        ingredient_list = cursor.fetchall()
-        cursor.close()
-
-        return jsonify(ingredient_list), 200
-    
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-    
 #Farmer lists new produce item
 @farmer_routes.route("/produce", methods=["POST"])
 def create_produce():
@@ -77,6 +42,43 @@ def create_produce():
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
+
+
+#List all produce
+@farmer_routes.route("/produce", methods=["GET"])
+def get_all_produce():
+    try:
+        cursor = db.get_db().cursor()
+
+        cursor.execute(
+            "SELECT produceID, name, expectedHarvestDate, quantityAvailable, unit " \
+            "FROM Produce"
+            )
+        produce_list = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(produce_list), 200
+    
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
+
+@farmer_routes.route("/ingredient", methods=["GET"])
+def get_all_ingredient():
+    try:
+        cursor = db.get_db().cursor()
+
+        cursor.execute(
+            "SELECT * " \
+            "FROM Ingredient"
+            )
+        ingredient_list = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(ingredient_list), 200
+    
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
+    
 
 # Return produce details
 @farmer_routes.route("/produce/<int:produceID>", methods=["GET"])
