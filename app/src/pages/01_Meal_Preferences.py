@@ -14,7 +14,7 @@ SideBarLinks()
 if "customer_id" not in st.session_state:
     st.session_state["customer_id"] = 1
 
-API_URL = "http://web-api:4000"
+API_URL = "http://web-api:4000/c"
 
 # -------- GET CUSTOMER ID --------
 customer_id = st.session_state.get("customer_id")
