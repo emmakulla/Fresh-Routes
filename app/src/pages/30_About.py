@@ -76,7 +76,7 @@ with col2:
     st.markdown(f"""
         <div style="{tile_style}">
             <h3>Brianna Fountain</h3>
-            <p>Role / Contribution</p>
+            <p>Computer Science and Finance Student</p>
         </div>
     """, unsafe_allow_html=True)
 
