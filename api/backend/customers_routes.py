@@ -6,6 +6,54 @@ from flask import current_app
 # Blueprint for customer-facing routes
 customer_routes = Blueprint("customer_routes", __name__)
 
+# Update nutrition goals and dietary preferences for the customer
+@customer_routes.route("/customer/<int:customerID>", methods=["PUT"])
+def update_nutrition_goals(customerID):
+    try:
+        data = request.get_json()
+
+        allowed_fields = ['dietaryPref', 'nutritionGoals']
+        update_fields = []
+        params = []
+
+        # Only allow updating a clear set of fields
+        
+        for field in allowed_fields:
+            if field in data:
+                update_fields.append(f"{field} = %s")
+                params.append(data[field])
+
+        if not update_fields:
+            return jsonify({"error": "No valid fields to update"}), 400
+
+        cursor = db.get_db().cursor()
+
+        cursor.execute(
+            """
+            SELECT customerID
+            FROM Customer 
+            WHERE customerID = %s
+            """,
+            (customerID,),
+        )
+        if not cursor.fetchall():
+            cursor.close()
+            return jsonify({"error": "Customer entry not found"}), 404
+
+        # executes function 
+        params.append(customerID)
+        query = f"UPDATE Customer SET {', '.join(update_fields)} WHERE customerID = %s"
+        cursor.execute(query, params)
+        db.get_db().commit()
+        cursor.close()
+
+        return jsonify({"message": " Updated successfully"}), 200
+
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
+
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
 
 #create a new customer account
 @customer_routes.route("/customers", methods=["POST"])
@@ -68,55 +116,6 @@ def get_customer(customer_id):
             return jsonify({"error": "Customer not found"}), 404
 
         return jsonify(customer), 200
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-
-# Update nutrition goals and dietary preferences for the customer
-@customer_routes.route("/customer/<int:customerID>", methods=["PUT"])
-def update_nutrition_goals(customerID):
-    try:
-        data = request.get_json()
-
-        allowed_fields = ['dietaryPref', 'nutritionGoals']
-        update_fields = []
-        params = []
-
-        # Only allow updating a clear set of fields
-        
-        for field in allowed_fields:
-            if field in data:
-                update_fields.append(f"{field} = %s")
-                params.append(data[field])
-
-        if not update_fields:
-            return jsonify({"error": "No valid fields to update"}), 400
-
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            """
-            SELECT customerID
-            FROM Customer 
-            WHERE customerID = %s
-            """,
-            (customerID,),
-        )
-        if not cursor.fetchall():
-            cursor.close()
-            return jsonify({"error": "Customer entry not found"}), 404
-
-        # executes function 
-        params.append(customerID)
-        query = f"UPDATE Customer SET {', '.join(update_fields)} WHERE customerID = %s"
-        cursor.execute(query, params)
-        db.get_db().commit()
-        cursor.close()
-
-        return jsonify({"message": " Updated successfully"}), 200
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
 
     except Error as e:
         return jsonify({"error": str(e)}), 500

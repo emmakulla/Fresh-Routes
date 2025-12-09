@@ -5,116 +5,6 @@ from mysql.connector import Error
 # Blueprint for customer-facing routes
 farmer_routes = Blueprint("farmer_routes", __name__)
 
-#List all produce
-@farmer_routes.route("/produce", methods=["GET"])
-def get_all_produce():
-    try:
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            "SELECT produceID, name, expectedHarvestDate, quantityAvailable, unit " \
-            "FROM Produce"
-            )
-        produce_list = cursor.fetchall()
-        cursor.close()
-
-        return jsonify(produce_list), 200
-    
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-
-@farmer_routes.route("/ingredient", methods=["GET"])
-def get_all_ingredient():
-    try:
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            "SELECT * " \
-            "FROM Ingredient"
-            )
-        ingredient_list = cursor.fetchall()
-        cursor.close()
-
-        return jsonify(ingredient_list), 200
-    
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-    
-# Inventory list for farmer
-@farmer_routes.route("/farmers/<int:farmerID>/inventory/<int:inventoryID>", methods=["DELETE"])
-def delete_farmer_inventory(farmerID, inventoryID):
-    try:
-        cursor = db.get_db().cursor()
-
-        cursor.execute(
-            """
-            SELECT inventoryID, farmerID, produceID, dateUpdate, quantity
-            FROM InventoryEntry
-            WHERE farmerID = %s AND inventoryID = %s 
-            """,
-            (farmerID, inventoryID,),
-        )
-
-        if not cursor.fetchone:
-            return jsonify({"error": "Produce not found"}), 404
-
-        cursor.execute("DELETE FROM Customer WHERE farmerID = %s AND inventoryID = %s ", (farmerID, inventoryID,))
-        db.get_db().commit()
-        cursor.close()
-
-        return jsonify({"message": "Inventory deleted successfully"}), 200
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-    
-#Update produce attributes
-@farmer_routes.route("/produce/<int:produceID>", methods=["PUT"])
-def update_produce(produceID):
-    try:
-        data = request.get_json()
-
-        allowed_fields = ["name", "unit", "quantityAvailable", "expectedHarvestDate"]
-        update_fields = []
-        params = []
-
-        # Only allow updating a clear set of fields
-        
-        for field in allowed_fields:
-            if field in data:
-                update_fields.append(f"{field} = %s")
-                params.append(data[field])
-
-        if not update_fields:
-            return jsonify({"error": "No valid fields to update"}), 400
-
-        cursor = db.get_db().cursor()
-
-        # Make sure the produce exists
-        cursor.execute(
-            "SELECT produceID " \
-            "FROM Produce " \
-            "WHERE produceID = %s",
-            (produceID,),
-        )
-        if not cursor.fetchone():
-            cursor.close()
-            return jsonify({"error": "Produce entry not found"}), 404
-
-        # executes function 
-        params.append(produceID)
-        query = f"UPDATE Produce SET {', '.join(update_fields)} WHERE produceID = %s"
-        cursor.execute(query, params)
-        db.get_db().commit()
-        cursor.close()
-
-        return jsonify({"message": "Produce updated successfully"}), 200
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-
-    except Error as e:
-        return jsonify({"error": str(e)}), 500
-    
 #Farmer lists new produce item
 @farmer_routes.route("/produce", methods=["POST"])
 def create_produce():
@@ -151,6 +41,43 @@ def create_produce():
 
     except Error as e:
         return jsonify({"error": str(e)}), 500
+
+
+#List all produce
+@farmer_routes.route("/produce", methods=["GET"])
+def get_all_produce():
+    try:
+        cursor = db.get_db().cursor()
+
+        cursor.execute(
+            "SELECT produceID, name, expectedHarvestDate, quantityAvailable, unit " \
+            "FROM Produce"
+            )
+        produce_list = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(produce_list), 200
+    
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
+
+@farmer_routes.route("/ingredient", methods=["GET"])
+def get_all_ingredient():
+    try:
+        cursor = db.get_db().cursor()
+
+        cursor.execute(
+            "SELECT * " \
+            "FROM Ingredient"
+            )
+        ingredient_list = cursor.fetchall()
+        cursor.close()
+
+        return jsonify(ingredient_list), 200
+    
+    except Error as e:
+        return jsonify({"error": str(e)}), 500
+    
 
 # Return produce details
 @farmer_routes.route("/produce/<int:produceID>", methods=["GET"])
